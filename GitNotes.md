@@ -93,7 +93,9 @@ Excited to share her story, Lina created a GitHub repository. She connected her 
 ```bash
 $ git remote add origin <https://github.com/lina/story.git>
 
+###################################
 Generate a Personal Access Token:
+###################################
 
 Go to GitHub.
 Navigate to Settings > Developer settings > Personal access tokens.
@@ -115,20 +117,13 @@ When you push or pull, Git will prompt you for a username and password. Use your
 Cache the Token:
 You can configure Git to cache your credentials so you don't have to enter them every time.
 
-sh
-Copy code
-git config --global credential.helper cache
-Store the Token in the URL (not recommended for security reasons):
 
-sh
-Copy code
 git remote set-url origin https://<username>:<token>@github.com/lina/story.git
 Push to the Private Branch:
 
 Follow the steps provided earlier to push your changes to the private branch. Here is an example with the token included:
 
-sh
-Copy code
+
 # Step 1: Add the remote repository
 git remote add origin https://github.com/lina/story.git
 
