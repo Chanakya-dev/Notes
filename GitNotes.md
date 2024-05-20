@@ -239,103 +239,7 @@ You are in 'detached HEAD' state...
 HEAD is now at abc1234 Begin Lina's story
 ```
 
-## Chapter 5: Lina's Advanced Git Techniques
 
-### Git Rebase:
-Lina discovered that `git rebase` is a powerful tool for keeping her commit history clean and linear. It allows her to change the base of her branch, effectively rewriting the commit history to make it appear as if she had started her work from a different point.
-
-Benefits of Git Rebase:
-
-1. Clean and Linear History: Rebasing creates a cleaner, more linear commit history compared to merging. It makes the commit history look as if the feature branch was developed after the latest commits on the base branch, even if it was developed simultaneously. This can make the history easier to understand and navigate.
-2. Avoid Unnecessary Merge Commits: When you merge a feature branch into the main branch, Git creates a merge commit to tie the histories together. If you frequently merge small features or bug fixes, your commit history can become cluttered with merge commits. Rebasing eliminates these unnecessary merge commits, keeping the history concise and focused on the actual changes.
-3. Maintain a Single Narrative: Rebasing allows you to maintain a single, clear narrative in your commit history. By rewriting the commits on your feature branch to appear as if they were made after the latest commits on the base branch, you can present a more coherent story of how your project evolved.
-4. Easier Conflict Resolution: When you rebase, conflicts are resolved on a commit-by-commit basis as Git applies each commit from your feature branch onto the base branch. This can make conflict resolution more manageable compared to resolving all conflicts at once during a merge.
-
-Example:
-Let's say Lina is working on a new feature in a branch called "new-character". Meanwhile, her friend Alex has made some changes to the "main" branch. Here's what their commit history looks like:
-
-```
-      A---B---C new-character
-     /
-D---E---F---G main
-```
-
-Lina wants to rebase her "new-character" branch onto the latest commit of the "main" branch. Here's what she does:
-
-```bash
-$ git checkout new-character
-$ git rebase main
-First, rewinding head to replay your work on top of it...
-Applying: Add new character
-Applying: Develop new character
-Applying: Resolve new character's story
-```
-
-After the rebase, the commit history will look like this:
-
-```
-              A'--B'--C' new-character
-             /
-D---E---F---G main
-```
-
-Git has rewritten the commits from the "new-character" branch (A, B, C) as if they happened after the latest commit on the "main" branch (G). The new commits (A', B', C') have different commit hashes because their parent commit has changed, but the actual changes in each commit remain the same.
-
-Now, when Lina merges her "new-character" branch back into "main", there will be no merge commit, and the history will remain clean and linear:
-
-```bash
-$ git checkout main
-$ git merge new-character
-Updating G..C'
-Fast-forward
- story.txt | 3 +++
- 1 file changed, 3 insertions(+)
-```
-
-The resulting history will be:
-
-```
-D---E---F---G---A'--B'--C' main
-```
-### # After merging the feature branch into main
-```
-git log --oneline --graph --all
-```
-
-### Git Bisect:
-`git bisect` is a powerful tool that helps Lina find the specific commit that introduced a bug or regression in her code. It performs a binary search through the commit history to efficiently identify the problematic commit.
-
-Let's say Lina discovers a bug in her story, but she's not sure which commit caused it. She starts the bisect process with:
-
-```bash
-$ git bisect start
-$ git bisect bad
-$ git bisect good abc1234
-Bisecting: 2 revisions left to test after this (roughly 1 step)
-[def5678] Add a plot twist
-```
-
-Here, Lina marks the current commit as "bad" (containing the bug) and specifies a known "good" commit (abc1234) where the bug didn't exist. Git then selects a commit in the middle of this range (def5678) and checks it out for Lina to test.
-
-Lina checks if the bug exists in this commit and marks it as "good" or "bad" using `git bisect good` or `git bisect bad`, respectively. Git then selects another commit to test based on her feedback. This process continues until Git identifies the specific commit that introduced the bug.
-
-Once the buggy commit is found, Lina can examine the changes made in that commit to understand and fix the issue. She then ends the bisect session with:
-
-```bash
-$ git bisect reset
-Previous HEAD position was def5678 Add a plot twist
-Switched to branch 'main'
-```
-
-This resets her repository to the original state before the bisect process.
-
-By mastering these advanced Git techniques, Lina can efficiently manage her project's history, collaborate with others, and troubleshoot issues effectively.
-
-```bash
-$ git bisect reset
-Previous HEAD position was def5678 Add a plot twist
-Switched to branch 'main'
-```
 
 ### Git Cherry-Pick:
 `git cherry-pick` is a powerful command that allows Lina to select individual commits from one branch and apply them to another branch. This is useful when Lina wants to include specific changes from a branch without merging the entire branch.
@@ -435,3 +339,105 @@ $ git branch recovered-branch
 Benefits of Git Reflog:
 
 1. Recovery: Reflog allows Lina to recover lost commits, branches, or changes that she may have
+
+
+##########################################################################
+To be done during coding classes as these concepts are useful for testing phase of coding
+####################################################################
+## Chapter 5: Lina's Advanced Git Techniques
+
+### Git Rebase:
+Lina discovered that `git rebase` is a powerful tool for keeping her commit history clean and linear. It allows her to change the base of her branch, effectively rewriting the commit history to make it appear as if she had started her work from a different point.
+
+Benefits of Git Rebase:
+
+1. Clean and Linear History: Rebasing creates a cleaner, more linear commit history compared to merging. It makes the commit history look as if the feature branch was developed after the latest commits on the base branch, even if it was developed simultaneously. This can make the history easier to understand and navigate.
+2. Avoid Unnecessary Merge Commits: When you merge a feature branch into the main branch, Git creates a merge commit to tie the histories together. If you frequently merge small features or bug fixes, your commit history can become cluttered with merge commits. Rebasing eliminates these unnecessary merge commits, keeping the history concise and focused on the actual changes.
+3. Maintain a Single Narrative: Rebasing allows you to maintain a single, clear narrative in your commit history. By rewriting the commits on your feature branch to appear as if they were made after the latest commits on the base branch, you can present a more coherent story of how your project evolved.
+4. Easier Conflict Resolution: When you rebase, conflicts are resolved on a commit-by-commit basis as Git applies each commit from your feature branch onto the base branch. This can make conflict resolution more manageable compared to resolving all conflicts at once during a merge.
+
+Example:
+Let's say Lina is working on a new feature in a branch called "new-character". Meanwhile, her friend Alex has made some changes to the "main" branch. Here's what their commit history looks like:
+
+```
+      A---B---C new-character
+     /
+D---E---F---G main
+```
+
+Lina wants to rebase her "new-character" branch onto the latest commit of the "main" branch. Here's what she does:
+
+```bash
+$ git checkout new-character
+$ git rebase main
+First, rewinding head to replay your work on top of it...
+Applying: Add new character
+Applying: Develop new character
+Applying: Resolve new character's story
+```
+
+After the rebase, the commit history will look like this:
+
+```
+              A'--B'--C' new-character
+             /
+D---E---F---G main
+```
+
+Git has rewritten the commits from the "new-character" branch (A, B, C) as if they happened after the latest commit on the "main" branch (G). The new commits (A', B', C') have different commit hashes because their parent commit has changed, but the actual changes in each commit remain the same.
+
+Now, when Lina merges her "new-character" branch back into "main", there will be no merge commit, and the history will remain clean and linear:
+
+```bash
+$ git checkout main
+$ git merge new-character
+Updating G..C'
+Fast-forward
+ story.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+```
+
+The resulting history will be:
+
+```
+D---E---F---G---A'--B'--C' main
+```
+### # After merging the feature branch into main
+```
+git log --oneline --graph --all
+```
+
+### Git Bisect:
+`git bisect` is a powerful tool that helps Lina find the specific commit that introduced a bug or regression in her code. It performs a binary search through the commit history to efficiently identify the problematic commit.
+
+Let's say Lina discovers a bug in her story, but she's not sure which commit caused it. She starts the bisect process with:
+
+```bash
+$ git bisect start
+$ git bisect bad
+$ git bisect good abc1234
+Bisecting: 2 revisions left to test after this (roughly 1 step)
+[def5678] Add a plot twist
+```
+
+Here, Lina marks the current commit as "bad" (containing the bug) and specifies a known "good" commit (abc1234) where the bug didn't exist. Git then selects a commit in the middle of this range (def5678) and checks it out for Lina to test.
+
+Lina checks if the bug exists in this commit and marks it as "good" or "bad" using `git bisect good` or `git bisect bad`, respectively. Git then selects another commit to test based on her feedback. This process continues until Git identifies the specific commit that introduced the bug.
+
+Once the buggy commit is found, Lina can examine the changes made in that commit to understand and fix the issue. She then ends the bisect session with:
+
+```bash
+$ git bisect reset
+Previous HEAD position was def5678 Add a plot twist
+Switched to branch 'main'
+```
+
+This resets her repository to the original state before the bisect process.
+
+By mastering these advanced Git techniques, Lina can efficiently manage her project's history, collaborate with others, and troubleshoot issues effectively.
+
+```bash
+$ git bisect reset
+Previous HEAD position was def5678 Add a plot twist
+Switched to branch 'main'
+```
