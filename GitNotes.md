@@ -341,9 +341,10 @@ Benefits of Git Reflog:
 1. Recovery: Reflog allows Lina to recover lost commits, branches, or changes that she may have
 
 
-##########################################################################
+```##########################################################################
 To be done during coding classes as these concepts are useful for testing phase of coding
 ####################################################################
+```
 ## Chapter 5: Lina's Advanced Git Techniques
 
 ### Git Rebase:
