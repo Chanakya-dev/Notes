@@ -1,4 +1,6 @@
-
+Configure your Git cli
+git config --global user.email "you@example.com"
+git config --global user.name "username"
 ```markdown
 # Lina's Git Adventure: A Comprehensive Git and GitHub Tutorial
 
