@@ -297,6 +297,10 @@ The resulting history will be:
 ```
 D---E---F---G---A'--B'--C' main
 ```
+### # After merging the feature branch into main
+```
+git log --oneline --graph --all
+```
 
 ### Git Bisect:
 `git bisect` is a powerful tool that helps Lina find the specific commit that introduced a bug or regression in her code. It performs a binary search through the commit history to efficiently identify the problematic commit.
