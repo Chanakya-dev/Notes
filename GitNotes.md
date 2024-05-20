@@ -92,6 +92,58 @@ Excited to share her story, Lina created a GitHub repository. She connected her 
 
 ```bash
 $ git remote add origin <https://github.com/lina/story.git>
+
+Generate a Personal Access Token:
+
+Go to GitHub.
+Navigate to Settings > Developer settings > Personal access tokens.
+Click on Generate new token.
+Give your token a descriptive name.
+Select the necessary scopes (e.g., repo for full control of private repositories).
+Generate the token and copy it. Keep it safe as you won't be able to see it again.
+Use the Token for Authentication:
+
+When you push or pull changes, you'll need to use the token. If you're using HTTPS, the token is used in place of your password.
+
+Configure Git to Use the Token:
+
+There are a few ways to do this:
+
+Manual Authentication:
+When you push or pull, Git will prompt you for a username and password. Use your GitHub username as the username and the token as the password.
+
+Cache the Token:
+You can configure Git to cache your credentials so you don't have to enter them every time.
+
+sh
+Copy code
+git config --global credential.helper cache
+Store the Token in the URL (not recommended for security reasons):
+
+sh
+Copy code
+git remote set-url origin https://<username>:<token>@github.com/lina/story.git
+Push to the Private Branch:
+
+Follow the steps provided earlier to push your changes to the private branch. Here is an example with the token included:
+
+sh
+Copy code
+# Step 1: Add the remote repository
+git remote add origin https://github.com/lina/story.git
+
+# Step 2: Create and checkout a new private branch
+git checkout -b private-branch
+
+# Step 3: Make changes to your files
+
+# Step 4: Add and commit changes
+git add .
+git commit -m "Descriptive commit message"
+
+# Step 5: Push changes to the private branch on the remote repository
+git push origin private-branch
+If prompted for authentication, use your GitHub username and the generated personal access token. This will securely push your commits to the private branch.
 ```
 
 Lina pushed her story to GitHub:
