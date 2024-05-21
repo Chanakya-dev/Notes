@@ -163,14 +163,13 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 Lina's friend, Alex, suggested a change. Alex forked Lina's repository on GitHub and cloned it:
 
 Alex's Steps
-Fork Lina's Repository on GitHub:
-Alex navigates to Lina's repository on GitHub and clicks the "Fork" button to create a copy of the repository under his own GitHub account.
+# Fork Lina's Repository on GitHub:
+# Alex navigates to Lina's repository on GitHub and clicks the "Fork" button to create a copy of the repository under his own GitHub account.
 
 Clone the Forked Repository:
 Alex clones his forked repository to his local machine:
 
-bash
-Copy code
+```
 git clone https://github.com/alex/story.git
 Output:
 
@@ -182,30 +181,28 @@ remote: Counting objects: 100% (6/6), done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
 Receiving objects: 100% (6/6), done.
+```
 Make Changes and Commit:
 Alex makes changes to the repository, then stages and commits them:
 
-bash
-Copy code
+```
 echo "Improve the story ending" >> story.txt
 git add story.txt
 git commit -m "Improve the story ending"
 Output:
 
-bash
-Copy code
+
 [main ghi9012] Improve the story ending
  1 file changed, 1 insertion(+)
-Push Changes to the Forked Repository:
+```
+# Push Changes to the Forked Repository:
 Alex pushes his changes to his forked repository on GitHub:
 
-bash
-Copy code
+```
 git push origin main
 Output:
 
-bash
-Copy code
+
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 8 threads
@@ -214,61 +211,18 @@ Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/alex/story.git
    def5678..ghi9012  main -> main
+```
 
    
 ## Create a Pull Request on GitHub:
-Alex's Steps
-Fork Lina's Repository on GitHub:
-Alex navigates to Lina's repository on GitHub and clicks the "Fork" button to create a copy of the repository under his own GitHub account.
 
-Clone the Forked Repository:
-Alex clones his forked repository to his local machine:
-
-```
-git clone https://github.com/alex/story.git
-Output:
-
-Cloning into 'story'...
-remote: Enumerating objects: 6, done.
-remote: Counting objects: 100% (6/6), done.
-remote: Compressing objects: 100% (2/2), done.
-remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
-Receiving objects: 100% (6/6), done.
-```
-Make Changes and Commit:
-Alex makes changes to the repository, then stages and commits them:
-
-```
-echo "Improve the story ending" >> story.txt
-git add story.txt
-git commit -m "Improve the story ending"
-Output:
-[main ghi9012] Improve the story ending
- 1 file changed, 1 insertion(+)
-Push Changes to the Forked Repository:
-Alex pushes his changes to his forked repository on GitHub:
-
-
-$git push origin main
-Output:
-
-
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/alex/story.git
-   def5678..ghi9012  main -> main
-Create a Pull Request on GitHub:
-#Alex goes to his forked repository on GitHub and creates a pull request to propose his changes to Lina's original repository.
+# Create a Pull Request on GitHub:
 
 Lina's Steps
-Review the Pull Request:
+# Review the Pull Request:
 Lina goes to her repository on GitHub, navigates to the "Pull Requests" tab, and finds Alex's pull request. She reviews the proposed changes.
 
-Merge the Pull Request:
+# Merge the Pull Request:
 If Lina is satisfied with the changes, she clicks the "Merge pull request" button and then confirms the merge by clicking "Confirm merge".
 
 Pull the Latest Changes to Her Local Repository:
@@ -291,6 +245,7 @@ Updating def5678..ghi9012
 Fast-forward
  story.txt | 1 +
  1 file changed, 1 insertion(+)
+   
 ## Chapter 4: Lina Masters Time Travel
 
 Lina discovered Git's time-traveling powers. She used `git stash` to save unfinished changes:
