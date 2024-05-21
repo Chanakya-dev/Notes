@@ -123,11 +123,8 @@ git config --global credential.helper store
 
 
 
-
-Push to the Private Branch:
-
-Follow the steps provided earlier to push your changes to the private branch. Here is an example with the token included:
-
+Steps#
+1> Create a Repo --> Public
 
 # Step 1: Add the remote repository
 git remote add origin https://github.com/gonchigars/Batch1Gitdemo.git
@@ -135,33 +132,12 @@ git remote add origin https://github.com/gonchigars/Batch1Gitdemo.git
 git remote set-url origin https://<username>:<token>@github.com/gonchigars/Batch1Gitdemo.git
 
 # Step 2: Create and checkout a new private branch
-git checkout -b private-branch
+git branch -M main
+git push -u origin main
 
-# Step 3: Make changes to your files
-
-# Step 4: Add and commit changes
-git add .
-git commit -m "Descriptive commit message"
-
-# Step 5: Push changes to the private branch on the remote repository
-git push origin private-branch
-If prompted for authentication, use your GitHub username and the generated personal access token. This will securely push your commits to the private branch.
 ```
 
-Lina pushed her story to GitHub:
 
-```bash
-$ git push -u origin main
-Enumerating objects: 6, done.
-Counting objects: 100% (6/6), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (6/6), 487 bytes | 487.00 KiB/s, done.
-Total 6 (delta 0), reused 0 (delta 0)
-To <https://github.com/lina/story.git>
- * [new branch]      main -> main
-Branch 'main' set up to track remote branch 'main' from 'origin'.
-```
 
 Lina's friend, Alex, suggested a change. Alex forked Lina's repository on GitHub and cloned it:
 
