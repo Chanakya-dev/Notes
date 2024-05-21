@@ -478,3 +478,7 @@ Switched to branch 'main'
 ```
 git diff
 ```
+
+```
+How to keep the fork repo updated
+```
