@@ -7,7 +7,7 @@ git config --global user.name "username"
 
 # Lina's Git Adventure: A Comprehensive Git and GitHub Tutorial
 
-## Chapter 1: Lina's First Steps with Git
+## Chapter 1: First Steps with Git
 
 Lina, a curious young programmer, discovered the wonders of Git. She opened her terminal, navigated to her project folder, and initialized her first Git repository:
 
@@ -50,7 +50,7 @@ Date:   Fri May 17 14:52:29 2024 +0000
     Begin Lina's story
 ```
 
-## Chapter 2: Lina's Branch Adventure
+## Chapter 2: Branch
 
 As Lina's story grew, she learned about branches. She created a new branch to explore a plot twist:
 
@@ -86,7 +86,7 @@ Fast-forward
  1 file changed, 1 insertion(+)
 ```
 
-## Chapter 3: Lina Collaborates on GitHub
+## Chapter 3: Collaborate on GitHub
 
 Excited to share her story, Lina created a GitHub repository. She connected her local repository to GitHub:
 
