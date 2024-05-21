@@ -1,9 +1,11 @@
-```markdown
+````markdown
 Configure your Git cli
+
 ```bash
 git config --global user.email "you@example.com"
 git config --global user.name "username"
 ```
+````
 
 # Lina's Git Adventure: A Comprehensive Git and GitHub Tutorial
 
@@ -137,12 +139,12 @@ git push -u origin main
 
 ```
 
-
-
 Lina's friend, Alex, suggested a change. Alex forked Lina's repository on GitHub and cloned it:
 
 Alex's Steps
+
 # Fork Lina's Repository on GitHub:
+
 # Alex navigates to Lina's repository on GitHub and clicks the "Fork" button to create a copy of the repository under his own GitHub account.
 
 Clone the Forked Repository:
@@ -161,6 +163,7 @@ remote: Compressing objects: 100% (2/2), done.
 remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
 Receiving objects: 100% (6/6), done.
 ```
+
 Make Changes and Commit:
 Alex makes changes to the repository, then stages and commits them:
 
@@ -174,7 +177,9 @@ Output:
 [main ghi9012] Improve the story ending
  1 file changed, 1 insertion(+)
 ```
+
 # Push Changes to the Forked Repository:
+
 Alex pushes his changes to his forked repository on GitHub:
 
 ```
@@ -192,23 +197,24 @@ To https://github.com/alex/story.git
    def5678..ghi9012  main -> main
 ```
 
-   
 ## Create a Pull Request on GitHub:
 
 # Create a Pull Request on GitHub:
 
 Lina's Steps
+
 # Review the Pull Request:
+
 Lina goes to her repository on GitHub, navigates to the "Pull Requests" tab, and finds Alex's pull request. She reviews the proposed changes.
 
 # Merge the Pull Request:
+
 If Lina is satisfied with the changes, she clicks the "Merge pull request" button and then confirms the merge by clicking "Confirm merge".
 
 Pull the Latest Changes to Her Local Repository:
 Lina pulls the latest changes from the remote main branch to her local repository:
 
-
-``` git pull origin main
+```git pull origin main
 Output:
 
 
@@ -225,7 +231,7 @@ Fast-forward
  story.txt | 1 +
  1 file changed, 1 insertion(+)
 ```
-   
+
 ## Chapter 4: Lina Masters Time Travel
 
 Lina discovered Git's time-traveling powers. She used `git stash` to save unfinished changes:
@@ -261,9 +267,8 @@ You are in 'detached HEAD' state...
 HEAD is now at abc1234 Begin Lina's story
 ```
 
-
-
 ### Git Cherry-Pick:
+
 `git cherry-pick` is a powerful command that allows Lina to select individual commits from one branch and apply them to another branch. This is useful when Lina wants to include specific changes from a branch without merging the entire branch.
 
 Example:
@@ -320,6 +325,7 @@ By using `git cherry-pick`, Lina can selectively apply specific commits from one
 ## Chapter 6: Lina's Git Troubleshooting
 
 ### Git Reflog:
+
 `git reflog` is a powerful command that allows Lina to view the history of her repository, including all the actions she has performed. It keeps track of every change to the HEAD pointer, which is a reference to the current branch or commit.
 
 Example:
@@ -362,32 +368,15 @@ Benefits of Git Reflog:
 
 1. Recovery: Reflog allows Lina to recover lost commits, branches, or changes that she may have
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```##########################################################################
 To be done during coding classes as these concepts are useful for testing phase of coding
 ####################################################################
 ```
+
 ## Chapter 5: Lina's Advanced Git Techniques
 
 ### Git Rebase:
+
 Lina discovered that `git rebase` is a powerful tool for keeping her commit history clean and linear. It allows her to change the base of her branch, effectively rewriting the commit history to make it appear as if she had started her work from a different point.
 
 Benefits of Git Rebase:
@@ -443,12 +432,15 @@ The resulting history will be:
 ```
 D---E---F---G---A'--B'--C' main
 ```
+
 ### # After merging the feature branch into main
+
 ```
 git log --oneline --graph --all
 ```
 
 ### Git Bisect:
+
 `git bisect` is a powerful tool that helps Lina find the specific commit that introduced a bug or regression in her code. It performs a binary search through the commit history to efficiently identify the problematic commit.
 
 Let's say Lina discovers a bug in her story, but she's not sure which commit caused it. She starts the bisect process with:
@@ -481,4 +473,8 @@ By mastering these advanced Git techniques, Lina can efficiently manage her proj
 $ git bisect reset
 Previous HEAD position was def5678 Add a plot twist
 Switched to branch 'main'
+```
+
+```
+git diff
 ```
