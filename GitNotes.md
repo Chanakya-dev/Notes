@@ -118,6 +118,9 @@ Cache the Token:
 You can configure Git to cache your credentials so you don't have to enter them every time.
 git config --global credential.helper cache
 
+Or, store your credentials permanently (less secure on shared machines):
+git config --global credential.helper store
+
 
 
 
