@@ -229,7 +229,7 @@ Pull the Latest Changes to Her Local Repository:
 Lina pulls the latest changes from the remote main branch to her local repository:
 
 
-git pull origin main
+``` git pull origin main
 Output:
 
 
@@ -245,6 +245,7 @@ Updating def5678..ghi9012
 Fast-forward
  story.txt | 1 +
  1 file changed, 1 insertion(+)
+```
    
 ## Chapter 4: Lina Masters Time Travel
 
