@@ -1,7 +1,7 @@
 # 50 Git Interview Questions and Answers
 
 
-1. **What is Git?**
+1. **What is Git?** 
    - Git is a distributed version control system that allows developers to track changes in their codebase, collaborate with others, and manage different versions of their project.
    - It provides features like branching, merging, and tagging to facilitate efficient software development workflows.
 
