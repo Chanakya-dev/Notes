@@ -116,16 +116,20 @@ When you push or pull, Git will prompt you for a username and password. Use your
 
 Cache the Token:
 You can configure Git to cache your credentials so you don't have to enter them every time.
+git config --global credential.helper cache
 
 
-git remote set-url origin https://<username>:<token>@github.com/lina/story.git
+
+
 Push to the Private Branch:
 
 Follow the steps provided earlier to push your changes to the private branch. Here is an example with the token included:
 
 
 # Step 1: Add the remote repository
-git remote add origin https://github.com/lina/story.git
+git remote add origin https://github.com/gonchigars/Batch1Gitdemo.git
+
+git remote set-url origin https://<username>:<token>@github.com/gonchigars/Batch1Gitdemo.git
 
 # Step 2: Create and checkout a new private branch
 git checkout -b private-branch
