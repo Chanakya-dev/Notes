@@ -309,8 +309,7 @@ This effectively makes master and HEAD point to commit C.
 
 Explanation
 Checking Out a Specific Commit (Detached HEAD State):
-bash
-Copy code
+
 git checkout C
 plaintext
 Copy code
@@ -322,8 +321,7 @@ You checkout commit C.
 HEAD now points directly to commit C, not to any branch.
 You are in a detached HEAD state, meaning any new commits you make won't belong to any branch.
 Creating a New Branch from a Specific Commit:
-bash
-Copy code
+
 git checkout -b new-branch
 plaintext
 Copy code
@@ -334,11 +332,10 @@ You create a new branch new-branch from commit C.
 HEAD now points to new-branch.
 Any new commits you make will be part of new-branch.
 Moving master Branch to a Specific Commit:
-bash
-Copy code
+
+git checkout master
 git reset --hard C
-plaintext
-Copy code
+
    A -- B -- C -- D (HEAD -> master)
                |
                E
@@ -350,36 +347,30 @@ If you want to recover deleted files and commit them on the same branch without 
 
 Checkout the Commit where the Files Were Last Present:
 
-bash
-Copy code
+
 git checkout <commit-id>
 This will put you in a detached HEAD state.
 
 Copy the Deleted Files to a Safe Location:
 
-bash
-Copy code
+
 cp -r . /path/to/safe/location
 Switch Back to Your Original Branch:
 
-bash
-Copy code
+
 git checkout master
 Copy the Files Back to Your Working Directory:
 
-bash
-Copy code
+
 cp -r /path/to/safe/location/* .
 Add and Commit the Recovered Files:
 
-bash
-Copy code
+
 git add .
 git commit -m "Recovered all deleted files"
 Visualizing the Process
 Initial State:
-plaintext
-Copy code
+
    A -- B -- C -- D -- E (HEAD -> master)
 Check out specific commit (detached HEAD state):
 plaintext
