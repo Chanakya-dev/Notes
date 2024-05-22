@@ -1,4 +1,4 @@
-# Lina's Git Adventure: A Comprehensive Git and GitHub Tutorial
+#  A Comprehensive Git and GitHub Tutorial
 
 ## Chapter 1: First Steps with Git
 
