@@ -482,3 +482,6 @@ git diff
 ```
 How to keep the fork repo updated
 ```
+git fetch
+git pull
+
