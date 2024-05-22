@@ -141,6 +141,7 @@
 
    ```bash
    git checkout <commit-hash>
+   Note: refer recovery process at the end of this notes for a demo
    ```
 
 4. Cherry-pick a specific commit from one branch to another:
