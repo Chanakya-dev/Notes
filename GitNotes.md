@@ -254,13 +254,6 @@ GitLens is a powerful extension for Visual Studio Code that enhances Git capabil
   - View detailed information about a specific commit.
   - Hover over a commit in the GitLens sidebar to see its details.
 
-
-## Demo of git fetch.
-go to github do some changes to a file online.
-```
-git fetch
-
-```
 ## refer gitlense to see the difference.
 
 ## understand git recovery process
@@ -391,4 +384,12 @@ Summary
 Checking out a specific commit can put you in a detached HEAD state.
 In a detached HEAD state, you can make changes and commit, but these commits won't belong to any branch unless you create a new branch or merge them back into an existing branch.
 To recover deleted files and commit them on the same branch, you can checkout the commit, copy the files to a safe location, switch back to the branch, and then add and commit the recovered files.
+```
+
+## Assignment 
+## Demo of git fetch.
+go to github do some changes to a file online.
+```
+git fetch
+
 ```
