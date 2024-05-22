@@ -482,6 +482,20 @@ git diff
 ```
 How to keep the fork repo updated
 ```
-git fetch
-git pull
+Example Workflow:
+Using git fetch:
+Fetch Changes:
+
+git fetch origin
+Review Changes:
+
+git log origin/main
+Merge Changes (if everything looks good):
+
+git merge origin/main
+Using git pull:
+Pull Changes:
+
+git pull origin main
+This will automatically fetch and merge the changes from origin/main into your current branch.
 
