@@ -14,7 +14,7 @@ In this hackathon, participants will apply their knowledge of Git and GitHub to 
 6. Create pull requests to merge each team member's branch into the main branch.
 7. Review and approve each other's pull requests, resolving any merge conflicts that arise.
 8. Use GitHub issues to discuss plot ideas, character development, and any other aspects of the story.
-9. Use Git commands like `git stash`, `git reflog`, and `git bisect` to manage your work and troubleshoot issues.
+9. Use Git commands like `git stash`, `git reflog` to manage your work and troubleshoot issues.
 10. Create a final pull request to merge the main branch into a final-story branch.
 11. Celebrate your collaborative story-writing success!
 
