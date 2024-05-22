@@ -1,25 +1,38 @@
 Hackathon Question: Git and GitHub Adventure
-Objective:
+# Hackathon Question: Git and GitHub Adventure
+
+## Objective:
 In this hackathon, participants will apply their knowledge of Git and GitHub to collaborate on a story-writing project. They will create branches, make commits, resolve merge conflicts, and use GitHub features like pull requests and issue tracking to work together effectively.
-Instructions:
 
-Form teams of 3-4 participants.
-Create a new GitHub repository for your team's story.
-Each team member should clone the repository to their local machine.
-Create a new branch for each team member (e.g., alice-branch, bob-branch, carol-branch).
-Each team member should write a part of the story in their respective branch and commit their changes.
-Create pull requests to merge each team member's branch into the main branch.
-Review and approve each other's pull requests, resolving any merge conflicts that arise.
-Use GitHub issues to discuss plot ideas, character development, and any other aspects of the story.
-Use Git commands like git stash, git reflog, and git bisect to manage your work and troubleshoot issues.
-Create a final pull request to merge the main branch into a final-story branch.
-Celebrate your collaborative story-writing success!
+## Instructions:
 
-Bonus Challenges:
+1. Form teams of 3-4 participants.
+2. Create a new GitHub repository for your team's story.
+3. Each team member should clone the repository to their local machine.
+4. Create a new branch for each team member (e.g., alice-branch, bob-branch, carol-branch).
+5. Each team member should write a part of the story in their respective branch and commit their changes.
+6. Create pull requests to merge each team member's branch into the main branch.
+7. Review and approve each other's pull requests, resolving any merge conflicts that arise.
+8. Use GitHub issues to discuss plot ideas, character development, and any other aspects of the story.
+9. Use Git commands like `git stash`, `git reflog`, and `git bisect` to manage your work and troubleshoot issues.
+10. Create a final pull request to merge the main branch into a final-story branch.
+11. Celebrate your collaborative story-writing success!
 
-Use GitLens to view the history of your story and see who contributed each line.
-Create a GitHub Pages site to showcase your story to the world.
-Use Git hooks to automatically check for spelling errors before committing.
+## Bonus Challenges:
+
+- Use GitLens to view the history of your story and see who contributed each line.
+- Create a GitHub Pages site to showcase your story to the world.
+- Use Git hooks to automatically check for spelling errors before committing.
+
+## Sample Solution:
+
+### Team members clone the repository and create their branches:
+```bash
+git clone https://github.com/team/story.git
+git branch alice-branch
+git branch bob-branch
+git branch carol-branch
+
 
 Sample Solution:
 
