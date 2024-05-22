@@ -254,4 +254,11 @@ GitLens is a powerful extension for Visual Studio Code that enhances Git capabil
   - View detailed information about a specific commit.
   - Hover over a commit in the GitLens sidebar to see its details.
 
-By following this tutorial step by step, you'll gain a solid understanding of essential Git concepts and commands. Practice regularly, and you'll soon become comfortable with using Git for version control and collaboration.
+
+## Demo of git fetch.
+go to github do some changes to a file online.
+```
+git fetch
+
+```
+## refer gitlense to see the difference.
