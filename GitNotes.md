@@ -270,42 +270,51 @@ Understanding git checkout and Detached HEAD
 When you use git checkout to switch to a specific commit, you can end up in a "detached HEAD" state. This means that your HEAD is pointing directly to a specific commit rather than to the latest commit on a branch. Let's break this down with a diagram and an explanation.
 
 Diagram: Branch and Detached HEAD States
-plaintext
-Copy code
-   master branch:
-   A -- B -- C -- D -- E (HEAD -> master)
-
-Scenario 1: Checking out a specific commit (detached HEAD state):
-   A -- B -- C -- D -- E (master)
-                  ^
-                  |
-               (HEAD)
-
-Scenario 2: Creating a new branch from a specific commit:
-   A -- B -- C -- D -- E (master)
-                  |
-                  F (HEAD -> new-branch)
-
-Scenario 3: Moving master branch to a specific commit:
-   A -- B -- C -- D (HEAD -> master)
-                  |
-                  E
-Explanation
 Initial State:
-
 plaintext
 Copy code
-A -- B -- C -- D -- E (HEAD -> master)
+   A -- B -- C -- D -- E (HEAD -> master)
 The branch master is pointing to commit E.
 HEAD points to the same commit as master.
-Checking Out a Specific Commit (Detached HEAD State):
 
+Scenario 1: Checking out a specific commit (detached HEAD state):
+plaintext
+Copy code
+   A -- B -- C -- D -- E (master)
+               ^
+               |
+            (HEAD)
+You checkout commit C.
+HEAD now points directly to commit C, not to any branch.
+
+Scenario 2: Creating a new branch from a specific commit:
+plaintext
+Copy code
+   A -- B -- C -- D -- E (master)
+               |
+               F (HEAD -> new-branch)
+You create a new branch new-branch from commit C.
+HEAD now points to new-branch.
+Any new commits you make will be part of new-branch.
+
+Scenario 3: Moving master branch to a specific commit:
+plaintext
+Copy code
+   A -- B -- C -- D (HEAD -> master)
+               |
+               E
+You move the master branch to point to commit C.
+HEAD points to master and master points to commit C.
+This effectively makes master and HEAD point to commit C.
+
+Explanation
+Checking Out a Specific Commit (Detached HEAD State):
 bash
 Copy code
 git checkout C
 plaintext
 Copy code
-A -- B -- C -- D -- E (master)
+   A -- B -- C -- D -- E (master)
                ^
                |
             (HEAD)
@@ -313,26 +322,24 @@ You checkout commit C.
 HEAD now points directly to commit C, not to any branch.
 You are in a detached HEAD state, meaning any new commits you make won't belong to any branch.
 Creating a New Branch from a Specific Commit:
-
 bash
 Copy code
 git checkout -b new-branch
 plaintext
 Copy code
-A -- B -- C -- D -- E (master)
+   A -- B -- C -- D -- E (master)
                |
                F (HEAD -> new-branch)
 You create a new branch new-branch from commit C.
 HEAD now points to new-branch.
 Any new commits you make will be part of new-branch.
 Moving master Branch to a Specific Commit:
-
 bash
 Copy code
 git reset --hard C
 plaintext
 Copy code
-A -- B -- C -- D (HEAD -> master)
+   A -- B -- C -- D (HEAD -> master)
                |
                E
 You move the master branch to point to commit C.
@@ -347,6 +354,7 @@ bash
 Copy code
 git checkout <commit-id>
 This will put you in a detached HEAD state.
+
 Copy the Deleted Files to a Safe Location:
 
 bash
@@ -369,26 +377,27 @@ Copy code
 git add .
 git commit -m "Recovered all deleted files"
 Visualizing the Process
+Initial State:
 plaintext
 Copy code
-1. Initial State:
-   master branch:
    A -- B -- C -- D -- E (HEAD -> master)
-
-2. Check out specific commit (detached HEAD state):
+Check out specific commit (detached HEAD state):
+plaintext
+Copy code
    A -- B -- C -- D -- E (master)
-                  ^
-                  |
-               (HEAD)
-
-3. Copy files, switch back to master:
+               ^
+               |
+            (HEAD)
+Copy files, switch back to master:
+plaintext
+Copy code
    A -- B -- C -- D -- E (HEAD -> master)
-   
-4. Copy files back to working directory and commit:
+Copy files back to working directory and commit:
+plaintext
+Copy code
    A -- B -- C -- D -- E -- F (HEAD -> master)
-
-```
 Summary
 Checking out a specific commit can put you in a detached HEAD state.
 In a detached HEAD state, you can make changes and commit, but these commits won't belong to any branch unless you create a new branch or merge them back into an existing branch.
 To recover deleted files and commit them on the same branch, you can checkout the commit, copy the files to a safe location, switch back to the branch, and then add and commit the recovered files.
+```
