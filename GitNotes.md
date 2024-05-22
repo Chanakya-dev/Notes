@@ -125,8 +125,7 @@
    ```
 
 ## Chapter 5: Time Travel with Git
-
-1. Use `git stash` to save unfinished changes:
+. Use `git stash` to save unfinished changes:
 
    ```bash
    git stash
@@ -150,6 +149,7 @@
    git checkout main
    git cherry-pick <commit-hash>
    ```
+1
 
 ## Chapter 6: Troubleshooting with Git
 
@@ -182,13 +182,6 @@
    git bisect reset
    ```
 
-6. To revert files to the state from a specific commit:
-
-   ```bash
-   git reset <commit-hash>
-   git restore --source=<commit-hash> --staged --worktree .
-   git commit -m "Revert files to state from the specified commit"
-   ```
 
 ## Chapter 7: Handling Merge Conflicts
 
