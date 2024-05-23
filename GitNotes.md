@@ -394,3 +394,10 @@ go to github do some changes to a file online.
 git fetch
 
 ```
+
+Scenarios
+1> Create a repo in github and clone it do changes and push changes.
+2> Fork a repo, clone it , done changes, push changes, PR request.
+3> Cloned repo, 1,2,3,4,5,6 commit. Remove commit 6 completely.
+4> Cloned repo, 1,2,3,4,5,6 commit.. retain commit 6, but move head to 5.
+5> Git stash
