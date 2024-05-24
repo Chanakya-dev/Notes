@@ -433,10 +433,9 @@ Initialize a Git repository:
 
 git init
 Configure Git with your username and email:
-
-e
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
+
 2. First Commit
 Create and add a file:
 
