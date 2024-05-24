@@ -425,3 +425,108 @@ List of Commands used.
 - `git reflog`
 - `git reset --hard`
 - `git fetch`
+
+```
+1. Initial Setup
+Initialize a Git repository:
+
+
+git init
+Configure Git with your username and email:
+
+e
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+2. First Commit
+Create and add a file:
+
+
+echo "Once upon a time..." > story.txt
+git add story.txt
+Commit the changes:
+
+
+git commit -m "Begin Lina's story"
+Check the status of the repository:
+
+
+git status
+View the commit history:
+
+
+git log
+3. Working with Branches
+Create a new branch:
+
+
+git branch plot-twist
+Switch to the new branch:
+
+
+git checkout plot-twist
+Make changes, add, and commit:
+
+
+echo "A surprising twist!" >> story.txt
+git add story.txt
+git commit -m "Add a plot twist"
+Merge the new branch back into the main branch:
+
+git checkout main
+git merge plot-twist
+4. Connecting to GitHub
+Set the remote URL (with authentication token):
+
+
+git remote set-url origin https://<username>:<token>@github.com/lina/story.git
+Push the local repository to GitHub:
+
+
+git push -u origin main
+5. Collaborating
+Clone the repository (another collaborator):
+
+
+git clone https://<username>:<token>@github.com/lina/story.git
+Make changes, add, commit, and push:
+
+echo "Adding more details..." >> story.txt
+git add story.txt
+git commit -m "Enhance the story"
+git push origin main
+Pull the latest changes:
+
+
+git pull origin main
+6. Working with Stash
+Stash changes:
+
+
+echo "Unfinished work..." >> story.txt
+git stash
+Apply stashed changes:
+
+
+git stash apply
+7. Exploring History and Recovery
+Checkout a specific commit:
+
+
+git checkout <commit-hash>
+Cherry-pick a specific commit:
+
+
+git cherry-pick <commit-hash>
+View the reflog:
+
+
+git reflog
+Reset to a specific commit:
+
+
+git reset --hard <commit-hash>
+8. Fetching Updates
+Fetch changes from the remote repository:
+
+git fetch
+```
