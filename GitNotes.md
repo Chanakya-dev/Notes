@@ -401,3 +401,27 @@ Scenarios
 3> Cloned repo, 1,2,3,4,5,6 commit. Remove commit 6 completely.
 4> Cloned repo, 1,2,3,4,5,6 commit.. retain commit 6, but move head to 5.
 5> Git stash
+
+Sure, here are the commands listed without repetition:
+
+- `git init`
+- `git add`
+- `git commit -m`
+- `git status`
+- `git log`
+- `git branch`
+- `git checkout <branch>`
+- `git merge`
+- `git config --global user.name`
+- `git config --global user.email`
+- `git remote set-url origin https://<username>:<token>@github.com/lina/story.git`
+- `git push -u origin`
+- `git clone`
+- `git pull`
+- `git stash`
+- `git stash apply`
+- `git checkout <commit-hash>`
+- `git cherry-pick`
+- `git reflog`
+- `git reset --hard`
+- `git fetch`
