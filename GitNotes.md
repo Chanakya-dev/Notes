@@ -402,7 +402,7 @@ Scenarios
 4> Cloned repo, 1,2,3,4,5,6 commit.. retain commit 6, but move head to 5.
 5> Git stash
 
-Sure, here are the commands listed without repetition:
+List of Commands used.
 
 - `git init`
 - `git add`
