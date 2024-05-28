@@ -1,9 +1,34 @@
 ### **Day 3: Control Flow (Part 2) (2 Hours)**
 
 #### **Objective:**
+- Understand && , || logic
 - Understand and implement loops in Java (`for`, `while`, `do-while`).
 - Learn about nested loops and their applications.
 - Apply loops to solve real-world problems.
+
+  ```
+  import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        System.out.print("Do you have a driver's license (true/false)? ");
+        boolean hasLicense = scanner.nextBoolean();
+
+        if (age >= 18 && hasLicense) {
+            System.out.println("You can drive.");
+        } else if (age >= 18 && !hasLicense) {
+            System.out.println("You need a driver's license to drive.");
+        } else {
+            System.out.println("You are not eligible to drive.");
+        }
+    }
+}
+```
 
 #### **Schedule:**
 
