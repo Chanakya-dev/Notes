@@ -1,6 +1,7 @@
 ```markdown
 # Control Flow (Part 2) Tutorial
-```
+
+```java
 public class SwitchExample {
     public static void main(String[] args) {
         int day = 3;
