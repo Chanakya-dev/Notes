@@ -133,52 +133,42 @@ public class Main {
 - Demonstrate a simple ATM system using loops and conditionals.
 
 ```java
-import java.util.Scanner;
-
-public class Main {
+public class SwitchExample {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double balance = 1000.0;
-        int choice;
+        int day = 3;
+        String dayName;
 
-        do {
-            System.out.println("ATM Menu:");
-            System.out.println("1. Check Balance");
-            System.out.println("2. Deposit Money");
-            System.out.println("3. Withdraw Money");
-            System.out.println("4. Exit");
-            System.out.print("Choose an option: ");
-            choice = scanner.nextInt();
+        switch (day) {
+            case 1:
+                dayName = "Monday";
+                break;
+            case 2:
+                dayName = "Tuesday";
+                break;
+            case 3:
+                dayName = "Wednesday";
+                break;
+            case 4:
+                dayName = "Thursday";
+                break;
+            case 5:
+                dayName = "Friday";
+                break;
+            case 6:
+                dayName = "Saturday";
+                break;
+            case 7:
+                dayName = "Sunday";
+                break;
+            default:
+                dayName = "Invalid day";
+                break;
+        }
 
-            switch (choice) {
-                case 1:
-                    System.out.println("Your balance is $" + balance);
-                    break;
-                case 2:
-                    System.out.print("Enter deposit amount: ");
-                    double deposit = scanner.nextDouble();
-                    balance += deposit;
-                    System.out.println("Your new balance is $" + balance);
-                    break;
-                case 3:
-                    System.out.print("Enter withdrawal amount: ");
-                    double withdrawal = scanner.nextDouble();
-                    if (withdrawal <= balance) {
-                        balance -= withdrawal;
-                        System.out.println("Your new balance is $" + balance);
-                    } else {
-                        System.out.println("Insufficient balance.");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Thank you for using the ATM. Goodbye!");
-                    break;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-            }
-        } while (choice != 4);
+        System.out.println("The day is: " + dayName);
     }
 }
+
 ```
 
 #### Q&A Session (10 minutes):
