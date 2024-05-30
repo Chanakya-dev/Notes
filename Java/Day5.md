@@ -1,6 +1,7 @@
 ### **Day 5: Advanced OOP Concepts and Review (2 Hours)**
 
 #### **Objective:**
+- Discuss %, -, +, / operators
 - Understand and implement static members in Java.
 - Learn the use of getters and setters for encapsulation.
 - Organize code using packages.
