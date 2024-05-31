@@ -3,7 +3,7 @@
 ```markdown
 # Git Reflog Usage Example
 
-Certainly! Here's a complete step-by-step example of using `git reflog` to recover a lost commit. We'll go through the process of making a few commits, accidentally deleting some of them with `git reset --hard`, and then recovering them using `git reflog`.
+step-by-step example of using `git reflog` to recover a lost commit. We'll go through the process of making a few commits, accidentally deleting some of them with `git reset --hard`, and then recovering them using `git reflog`.
 
 ## Step-by-Step Example
 
