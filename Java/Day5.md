@@ -1,6 +1,8 @@
 ### **Day 5: Advanced OOP Concepts and Review (2 Hours)**
 
 #### **Objective:**
+- Update Tomorrow Interview Session. Go through git-reflog-lab notes.
+  https://github.com/Academixedu/Notes/blob/main/Git-reflog-lab.md
 - Discuss %, -, +, / operators
 - Pass parameters to functions.
 - Camel case for variableNames and methodNames, Start with Capital for class.
