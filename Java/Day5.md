@@ -2,6 +2,8 @@
 
 #### **Objective:**
 - Discuss %, -, +, / operators
+- Pass parameters to functions.
+- Camel case for variableNames and methodNames, Start with Capital for class.
 - Understand and implement static members in Java.
 - Learn the use of getters and setters for encapsulation.
 - Organize code using packages.
