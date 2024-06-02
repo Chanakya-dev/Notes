@@ -152,7 +152,7 @@ function AppBarComponent() {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-          FILMPIRE
+          ACADEMIX
         </Typography>
         <Search>
           <SearchIconWrapper>
@@ -214,7 +214,7 @@ const Sidebar = () => {
     >
       <div>
         <Typography variant="h6" align="center" gutterBottom>
-          FILMPIRE
+          ACADEMIX
         </Typography>
         <Divider />
         <List>
