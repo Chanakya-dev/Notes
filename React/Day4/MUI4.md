@@ -1,169 +1,50 @@
-### **1. Update AppBarComponent**
+# SideBar
 
-First, update the `AppBarComponent` to include a button to open the sidebar.
+## **Step-by-Step Solution**
 
-```jsx
-// src/components/AppBarComponent.js
-import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+1. **Ensure the AppBar is Positioned Correctly**
+2. **Adjust the Main Content Area to Fill the Space**
 
-function AppBarComponent({ onMenuClick }) {
-  return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          onClick={onMenuClick}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          TMDB Movies
-        </Typography>
-      </Toolbar>
-    </AppBar>
-  );
-}
+## **Update App.js**
 
-export default AppBarComponent;
-```
-
-### **2. Create DrawerComponent**
-
-Next, create a `DrawerComponent` for the sidebar navigation.
-
-```jsx
-// src/components/DrawerComponent.js
-import React from "react";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
-import MovieIcon from "@mui/icons-material/Movie";
-import InfoIcon from "@mui/icons-material/Info";
-
-function DrawerComponent({ open, onClose }) {
-  return (
-    <Drawer anchor="left" open={open} onClose={onClose}>
-      <List>
-        <ListItem button>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <MovieIcon />
-          </ListItemIcon>
-          <ListItemText primary="Movies" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <InfoIcon />
-          </ListItemIcon>
-          <ListItemText primary="About" />
-        </ListItem>
-      </List>
-    </Drawer>
-  );
-}
-
-export default DrawerComponent;
-```
-
-### **3. Update MainContent and Footer**
-
-Update the `MainContent` and `Footer` components as needed.
-
-**MainContent.js**
-
-```jsx
-// src/components/MainContent.js
-import React from "react";
-import MovieGrid from "./MovieGrid";
-
-function MainContent() {
-  return (
-    <div style={{ flex: 1, padding: "16px" }}>
-      <MovieGrid />
-    </div>
-  );
-}
-
-export default MainContent;
-```
-
-**Footer.js**
-
-```jsx
-// src/components/Footer.js
-import React from "react";
-import Button from "@mui/material/Button";
-import HomeIcon from "@mui/icons-material/Home";
-
-function Footer() {
-  return (
-    <div style={{ padding: "16px", display: "flex", justifyContent: "center" }}>
-      <Button variant="contained" color="primary" startIcon={<HomeIcon />}>
-        Home
-      </Button>
-    </div>
-  );
-}
-
-export default Footer;
-```
-
-### **4. Update App.js to Include Drawer State Management**
-
-Update the `App.js` file to manage the state of the drawer and pass the necessary props to `AppBarComponent` and `DrawerComponent`.
+Ensure the `App.js` is properly structured:
 
 ```jsx
 // src/App.js
-import React, { useState } from "react";
-import { CssBaseline } from "@mui/material";
+import React from "react";
+import { CssBaseline, Box, Toolbar } from "@mui/material";
 import AppBarComponent from "./components/AppBarComponent";
-import DrawerComponent from "./components/DrawerComponent";
+import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
-import Footer from "./components/Footer";
 
 function App() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
-  };
-
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-    >
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBarComponent onMenuClick={handleDrawerToggle} />
-      <DrawerComponent open={drawerOpen} onClose={handleDrawerToggle} />
-      <MainContent />
-      <Footer />
-    </div>
+      <AppBarComponent />
+      <Sidebar />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          bgcolor: "background.default",
+          p: 3,
+        }}
+      >
+        {/* Adding a Toolbar to offset the AppBar height */}
+        <Toolbar />
+        <MainContent />
+      </Box>
+    </Box>
   );
 }
 
 export default App;
 ```
 
-### **5. Ensure All Components are Properly Styled**
+## **Ensure Proper CSS Styles**
 
-Add any necessary CSS styles to ensure the layout looks good.
-
-**index.css**
+Update `index.css` to ensure the layout is correct:
 
 ```css
 /* src/index.css */
@@ -183,21 +64,216 @@ code {
 
 #root {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
+}
+
+.MuiDrawer-paper {
+  width: 240px;
+  box-sizing: border-box;
+}
+
+.MuiAppBar-root {
+  z-index: 1201; /* This ensures the AppBar stays above the Drawer */
 }
 ```
 
-### **6. Run Your Application**
+## **Ensure `AppBarComponent` and `Sidebar` are Correct**
+
+Verify `AppBarComponent` and `Sidebar` components for any extra margins or paddings.
+
+### **AppBarComponent.js**
+
+```jsx
+// src/components/AppBarComponent.js
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  InputBase,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import { styled, alpha } from "@mui/material/styles";
+
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(1),
+    width: "auto",
+  },
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
+    },
+  },
+}));
+
+function AppBarComponent() {
+  return (
+    <AppBar
+      position="fixed"
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    >
+      <Toolbar>
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          FILMPIRE
+        </Typography>
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            placeholder="Search for a Movie…"
+            inputProps={{ "aria-label": "search" }}
+          />
+        </Search>
+      </Toolbar>
+    </AppBar>
+  );
+}
+
+export default AppBarComponent;
+```
+
+### **Sidebar.js**
+
+```jsx
+// src/components/Sidebar.js
+import React from "react";
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  Divider,
+} from "@mui/material";
+import MovieIcon from "@mui/icons-material/Movie";
+import StarIcon from "@mui/icons-material/Star";
+import UpdateIcon from "@mui/icons-material/Update";
+import TheatersIcon from "@mui/icons-material/Theaters";
+import HomeIcon from "@mui/icons-material/Home";
+import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import GavelIcon from "@mui/icons-material/Gavel";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
+import PublicIcon from "@mui/icons-material/Public";
+import DramaIcon from "@mui/icons-material/TheaterComedy"; // Correct icon name
+
+const Sidebar = () => {
+  return (
+    <Drawer
+      variant="permanent"
+      anchor="left"
+      sx={{
+        width: 240,
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: 240,
+          boxSizing: "border-box",
+        },
+      }}
+    >
+      <div>
+        <Typography variant="h6" align="center" gutterBottom>
+          FILMPIRE
+        </Typography>
+        <Divider />
+        <List>
+          <Typography variant="subtitle1" style={{ padding: "8px 16px" }}>
+            Categories
+          </Typography>
+          {["Popular", "Top Rated", "Upcoming"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index === 0 ? (
+                  <MovieIcon />
+                ) : index === 1 ? (
+                  <StarIcon />
+                ) : (
+                  <UpdateIcon />
+                )}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          <Typography variant="subtitle1" style={{ padding: "8px 16px" }}>
+            Genres
+          </Typography>
+          {[
+            { text: "Action", icon: <TheatersIcon /> },
+            { text: "Adventure", icon: <HomeIcon /> },
+            { text: "Animation", icon: <LocalMoviesIcon /> },
+            { text: "Comedy", icon: <EmojiEmotionsIcon /> },
+            { text: "Crime", icon: <GavelIcon /> },
+            { text: "Documentary", icon: <VideocamIcon /> },
+            { text: "Drama", icon: <DramaIcon /> },
+            { text: "Family", icon: <FamilyRestroomIcon /> },
+            { text: "Fantasy", icon: <PublicIcon /> },
+          ].map((item) => (
+            <ListItem button key={item.text}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    </Drawer>
+  );
+};
+
+export default Sidebar;
+```
+
+## **Ensure the Correct Positioning of Components**
+
+Make sure the main content area takes into account the height of the AppBar to prevent any overlap or unintended gaps. By adding a `Toolbar` component in the main content area, you ensure that the content is offset by the height of the AppBar.
+
+## **Run Your Application**
 
 Start your application by running:
 
 ```bash
 npm start
 ```
-
-### **Summary**
-
-In this extended tutorial, we added a header (AppBar) and a sidebar (Drawer) to the React application. The AppBar includes a menu button that toggles the Drawer. The Drawer contains navigation links. We also used the MovieGrid component to display movies fetched from the TMDB API in a grid layout, and the Footer component to place the Home button at the bottom of the page.
-
-This setup provides a basic structure for a more interactive and navigable application. You can further enhance the application by adding routing for different pages, handling navigation actions, and styling the components to match your design requirements.
