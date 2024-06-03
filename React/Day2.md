@@ -1,4 +1,8 @@
 ````markdown
+node -v
+npm -v
+npx -v
+
 
 # How to Start Creating a React Project
 
