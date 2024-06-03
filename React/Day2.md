@@ -36,6 +36,29 @@ npm start
 
 This will start the React development server and open your new React application in your default web browser at `http://localhost:3000`.
 
+### Step 5.2 HTML equivalent
+
+```bash
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My React App</title>
+    <link rel="stylesheet" href="App.css" />
+  </head>
+  <body>
+    <div class="App">
+      <header class="App-header">
+        <img src="logo.svg" class="App-logo" alt="logo" />
+        <p>HTML Equivalent</p>
+      </header>
+    </div>
+  </body>
+</html>
+
+```
+
 ### Step 6: Edit Your React Project
 You can now start editing your React project. Open the project folder in your preferred code editor (e.g., VS Code). The main files you will work with are:
 
