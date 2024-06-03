@@ -1,0 +1,97 @@
+# Steps to Revert a Commit and Update .gitignore
+
+## Step 1: Revert the commit
+
+To revert the last commit (assuming "test case" is the last commit you made), you can use:
+
+```bash
+git revert HEAD
+```
+
+If the commit is not the last one, you will need to find the commit hash of the commit you want to revert. Use:
+
+```bash
+git log
+```
+
+Find the commit hash (it will be a long string like `1cd18df`) and then revert it:
+
+```bash
+git revert <commit-hash>
+```
+
+## Step 2: Add the .gitignore file
+
+Create the `.gitignore` file in the root directory of your project with the content provided earlier.
+
+## Step 3: Remove cached files and update the repository
+
+Remove all files from the index (staging area) and re-add them, which will respect the new `.gitignore` rules:
+
+```bash
+git rm -r --cached .
+git add .
+```
+
+## Step 4: Commit the changes
+
+Commit the changes to your repository:
+
+```bash
+git commit -m "Update .gitignore and remove ignored files from repository"
+```
+
+## Example Commands
+
+```bash
+# Navigate to the root of your project
+cd C:/Users/gonch/Desktop/Academix-code/Java/carClassAssignment/JavaDay5
+
+# Revert the last commit
+git revert HEAD
+
+# Create and add the .gitignore file (if not already done)
+echo "
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Eclipse specific files
+.settings/
+.classpath
+.project
+" > .gitignore
+
+# Remove all files from the index (staging area)
+git rm -r --cached .
+
+# Re-add all files, respecting the new .gitignore rules
+git add .
+
+# Commit the changes
+git commit -m "Update .gitignore and remove ignored files from repository"
+```
