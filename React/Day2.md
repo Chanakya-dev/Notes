@@ -11,12 +11,7 @@ To start creating a React project, follow these steps:
 ### Step 1: Install Node.js and npm
 Ensure you have Node.js and npm (Node Package Manager) installed on your computer. You can download them from [Node.js official website](https://nodejs.org/).
 
-### Step 2: Install Create React App
-`create-react-app` is a tool that sets up a new React project with a standard configuration. Open your terminal or command prompt and run the following command to install it globally:
 
-```bash
-npm install -g create-react-app
-```
 
 ### Step 3: Create a New React Project
 Run the following command in your terminal to create a new React project. Replace `my-app` with your desired project name:
