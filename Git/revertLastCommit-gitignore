@@ -1,30 +1,66 @@
+```markdown
 # Steps to Revert a Commit and Update .gitignore
 
-## Step 1: Revert the commit
+## Step 1: Revert the Commit
 
-To revert the last commit (assuming "test case" is the last commit you made), you can use:
+To revert the last commit (assuming "test case" is the last commit you made), use:
 
 ```bash
 git revert HEAD
 ```
 
-If the commit is not the last one, you will need to find the commit hash of the commit you want to revert. Use:
+If the commit you want to revert is not the last one, find the commit hash of the commit you want to revert using:
 
 ```bash
 git log
 ```
 
-Find the commit hash (it will be a long string like `1cd18df`) and then revert it:
+Identify the commit hash (it will be a long string like `1cd18df`) and then revert it:
 
 ```bash
 git revert <commit-hash>
 ```
 
-## Step 2: Add the .gitignore file
+## Step 2: Add the .gitignore File
 
-Create the `.gitignore` file in the root directory of your project with the content provided earlier.
+Create the `.gitignore` file in the root directory of your project with the appropriate content. For example:
 
-## Step 3: Remove cached files and update the repository
+```plaintext
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven specific files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Eclipse specific files
+.settings/
+.classpath
+.project
+```
+
+## Step 3: Remove Cached Files and Update the Repository
 
 Remove all files from the index (staging area) and re-add them, which will respect the new `.gitignore` rules:
 
@@ -33,7 +69,7 @@ git rm -r --cached .
 git add .
 ```
 
-## Step 4: Commit the changes
+## Step 4: Commit the Changes
 
 Commit the changes to your repository:
 
@@ -95,3 +131,6 @@ git add .
 # Commit the changes
 git commit -m "Update .gitignore and remove ignored files from repository"
 ```
+```
+
+This markdown format provides a clear, step-by-step guide to reverting a commit and updating your `.gitignore` file.
