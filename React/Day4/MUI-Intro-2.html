@@ -1,0 +1,68 @@
+To push the buttons down, you can add margin or padding to the container or the `Box` component. You can also use the `marginTop` (`mt`) or `paddingTop` (`pt`) properties directly on the `Box` component.
+
+Here's how you can modify your `App` component to push the buttons down:
+
+```jsx
+import React from "react";
+import {
+  Container,
+  Typography,
+  Button,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Box,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+
+function App() {
+  return (
+    <Container>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6">MUI Tutorial</Typography>
+        </Toolbar>
+      </AppBar>
+      <Typography variant="h1" gutterBottom>
+        Welcome to Material-UI
+      </Typography>
+      <Typography variant="body1" paragraph>
+        This is a simple tutorial to get started with Material-UI in your React application.
+      </Typography>
+      <Box display="flex" justifyContent="center" alignItems="center" mt={8}>
+        <Button variant="contained" color="primary">
+          Primary Button
+        </Button>
+        <Button variant="outlined" color="secondary" style={{ marginLeft: "10px" }}>
+          Secondary Button
+        </Button>
+      </Box>
+    </Container>
+  );
+}
+
+export default App;
+```
+
+### Explanation:
+1. **`mt={8}`**:
+   - The `mt={8}` property adds a large top margin to the `Box` component, pushing the buttons further down the page.
+   - You can adjust the value to control the spacing. The value `8` is a multiple of the default spacing unit in Material-UI (typically 8 pixels per unit), so `mt={8}` adds 64 pixels of margin on the top.
+
+You can adjust the `mt` value to control exactly how far down the buttons are pushed. If you want to use padding instead of margin, you can use the `pt` property in a similar way.
+
+```jsx
+<Box display="flex" justifyContent="center" alignItems="center" pt={8}>
+  <Button variant="contained" color="primary">
+    Primary Button
+  </Button>
+  <Button variant="outlined" color="secondary" style={{ marginLeft: "10px" }}>
+    Secondary Button
+  </Button>
+</Box>
+```
+
+In this example, `pt={8}` adds padding at the top, pushing the buttons down by the same amount.
