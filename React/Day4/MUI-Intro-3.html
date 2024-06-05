@@ -1,0 +1,73 @@
+To move the buttons to the left, you can adjust the margin, padding, or use flexbox properties for alignment. Here's how you can adjust the `Box` component to move the buttons to the left:
+
+### Using Flexbox Properties
+
+```jsx
+import React from "react";
+import {
+  Container,
+  Typography,
+  Button,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Box,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+
+function App() {
+  return (
+    <Container>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6">MUI Tutorial</Typography>
+        </Toolbar>
+      </AppBar>
+      <Typography variant="h1" gutterBottom>
+        Welcome to Material-UI
+      </Typography>
+      <Typography variant="body1" paragraph>
+        This is a simple tutorial to get started with Material-UI in your React application.
+      </Typography>
+      <Box display="flex" justifyContent="flex-start" alignItems="center" mt={8}>
+        <Button variant="contained" color="primary">
+          Primary Button
+        </Button>
+        <Button variant="outlined" color="secondary" style={{ marginLeft: "10px" }}>
+          Secondary Button
+        </Button>
+      </Box>
+    </Container>
+  );
+}
+
+export default App;
+```
+
+### Explanation:
+1. **`justifyContent="flex-start"`**:
+   - The `justifyContent="flex-start"` property aligns the buttons to the left within the `Box` component.
+   - This uses the flexbox layout to position the items at the start of the flex container.
+
+2. **Adjusting Margin**:
+   - If you need to add specific left margin to the entire `Box` component or individual buttons, you can use the `ml` (margin-left) property.
+
+### Example with Margin Adjustment
+
+```jsx
+<Box display="flex" alignItems="center" mt={8} ml={4}>
+  <Button variant="contained" color="primary">
+    Primary Button
+  </Button>
+  <Button variant="outlined" color="secondary" style={{ marginLeft: "10px" }}>
+    Secondary Button
+  </Button>
+</Box>
+```
+
+In this example, `ml={4}` adds a left margin to the `Box` component, moving it to the right by 32 pixels (assuming the default spacing unit of 8 pixels).
+
+You can combine these approaches to get the precise positioning you need. Adjust the `justifyContent` and margin values as needed to achieve the desired layout.
