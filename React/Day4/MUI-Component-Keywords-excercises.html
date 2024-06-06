@@ -1,0 +1,525 @@
+Let's create exercises for each component where the student will be able to create a new React component, import it into `App.js`, and see the results.
+
+### 1. Grid Component
+
+#### Exercise: Create a Responsive Grid Layout
+
+1. **Create a New React Component: `ResponsiveGrid.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Grid, Paper } from '@material-ui/core';
+
+   const ResponsiveGrid = () => {
+     return (
+       <Grid container spacing={4}>
+         <Grid item xs={12} md={4}>
+           <Paper style={{ padding: 16 }}>Content 1</Paper>
+         </Grid>
+         <Grid item xs={12} md={4}>
+           <Paper style={{ padding: 16 }}>Content 2</Paper>
+         </Grid>
+         <Grid item xs={12} md={4}>
+           <Paper style={{ padding: 16 }}>Content 3</Paper>
+         </Grid>
+       </Grid>
+     );
+   };
+
+   export default ResponsiveGrid;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+
+   function App() {
+     return (
+       <div className="App">
+         <ResponsiveGrid />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 2. Box Component
+
+#### Exercise: Create a Centered Box
+
+1. **Create a New React Component: `CenteredBox.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Box, Typography } from '@material-ui/core';
+
+   const CenteredBox = () => {
+     return (
+       <Box mt={2} display="flex" justifyContent="center" alignItems="center" height="50vh">
+         <Typography variant="h6">Centered Text</Typography>
+       </Box>
+     );
+   };
+
+   export default CenteredBox;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+
+   function App() {
+     return (
+       <div className="App">
+         <ResponsiveGrid />
+         <CenteredBox />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 3. Typography Component
+
+#### Exercise: Create a Typography Example
+
+1. **Create a New React Component: `TypographyExample.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Typography, Box } from '@material-ui/core';
+
+   const TypographyExample = () => {
+     return (
+       <Box p={3}>
+         <Typography variant="h4" gutterBottom>
+           Header Text
+         </Typography>
+         <Typography variant="body1">
+           This is a simple tutorial to get started with Material-UI in your React application.
+         </Typography>
+       </Box>
+     );
+   };
+
+   export default TypographyExample;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+
+   function App() {
+     return (
+       <div className="App">
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 4. AppBar Component
+
+#### Exercise: Create an AppBar
+
+1. **Create a New React Component: `HeaderAppBar.js`**
+
+   ```jsx
+   import React from 'react';
+   import { AppBar, Toolbar, Typography } from '@material-ui/core';
+
+   const HeaderAppBar = () => {
+     return (
+       <AppBar position="static" color="primary">
+         <Toolbar>
+           <Typography variant="h6">Header</Typography>
+         </Toolbar>
+       </AppBar>
+     );
+   };
+
+   export default HeaderAppBar;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 5. Toolbar Component
+
+#### Exercise: Create a Toolbar
+
+1. **Create a New React Component: `CustomToolbar.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Toolbar, Typography } from '@material-ui/core';
+
+   const CustomToolbar = () => {
+     return (
+       <Toolbar>
+         <Typography variant="h6">Header</Typography>
+       </Toolbar>
+     );
+   };
+
+   export default CustomToolbar;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+   import CustomToolbar from './CustomToolbar';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <CustomToolbar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 6. Paper Component
+
+#### Exercise: Create a Paper Component
+
+1. **Create a New React Component: `ElevatedPaper.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Paper, Typography } from '@material-ui/core';
+
+   const ElevatedPaper = () => {
+     return (
+       <Paper elevation={3} style={{ padding: 16 }}>
+         <Typography variant="h5">Content</Typography>
+       </Paper>
+     );
+   };
+
+   export default ElevatedPaper;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+   import CustomToolbar from './CustomToolbar';
+   import ElevatedPaper from './ElevatedPaper';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <CustomToolbar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+         <ElevatedPaper />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 7. IconButton Component
+
+#### Exercise: Create an IconButton
+
+1. **Create a New React Component: `LinkedInButton.js`**
+
+   ```jsx
+   import React from 'react';
+   import { IconButton } from '@material-ui/core';
+   import LinkedIn from '@material-ui/icons/LinkedIn';
+
+   const LinkedInButton = () => {
+     return (
+       <IconButton color="inherit" href="https://www.linkedin.com">
+         <LinkedIn />
+       </IconButton>
+     );
+   };
+
+   export default LinkedInButton;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+   import CustomToolbar from './CustomToolbar';
+   import ElevatedPaper from './ElevatedPaper';
+   import LinkedInButton from './LinkedInButton';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <CustomToolbar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+         <ElevatedPaper />
+         <LinkedInButton />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 8. Link Component
+
+#### Exercise: Create a Link Component
+
+1. **Create a New React Component: `SignUpLink.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Link } from '@material-ui/core';
+
+   const SignUpLink = () => {
+     return (
+       <Link href="#" color="inherit">
+         Sign Up
+       </Link>
+     );
+   };
+
+   export default SignUpLink;
+
+
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+   import CustomToolbar from './CustomToolbar';
+   import ElevatedPaper from './ElevatedPaper';
+   import LinkedInButton from './LinkedInButton';
+   import SignUpLink from './SignUpLink';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <CustomToolbar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+         <ElevatedPaper />
+         <LinkedInButton />
+         <SignUpLink />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 9. Rating Component
+
+#### Exercise: Create a Rating Component
+
+1. **Create a New React Component: `StarRating.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Rating } from '@material-ui/lab';
+
+   const StarRating = () => {
+     return (
+       <Rating name="read-only" value={4} readOnly />
+     );
+   };
+
+   export default StarRating;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+   import CustomToolbar from './CustomToolbar';
+   import ElevatedPaper from './ElevatedPaper';
+   import LinkedInButton from './LinkedInButton';
+   import SignUpLink from './SignUpLink';
+   import StarRating from './StarRating';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <CustomToolbar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+         <ElevatedPaper />
+         <LinkedInButton />
+         <SignUpLink />
+         <StarRating />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
+
+### 10. Pagination Component
+
+#### Exercise: Create a Pagination Component
+
+1. **Create a New React Component: `PaginationExample.js`**
+
+   ```jsx
+   import React from 'react';
+   import { Pagination } from '@material-ui/lab';
+
+   const PaginationExample = () => {
+     return (
+       <Pagination count={10} color="primary" />
+     );
+   };
+
+   export default PaginationExample;
+   ```
+
+2. **Integrate the Component in `App.js`**
+
+   ```jsx
+   import React from 'react';
+   import ResponsiveGrid from './ResponsiveGrid';
+   import CenteredBox from './CenteredBox';
+   import TypographyExample from './TypographyExample';
+   import HeaderAppBar from './HeaderAppBar';
+   import CustomToolbar from './CustomToolbar';
+   import ElevatedPaper from './ElevatedPaper';
+   import LinkedInButton from './LinkedInButton';
+   import SignUpLink from './SignUpLink';
+   import StarRating from './StarRating';
+   import PaginationExample from './PaginationExample';
+
+   function App() {
+     return (
+       <div className="App">
+         <HeaderAppBar />
+         <CustomToolbar />
+         <ResponsiveGrid />
+         <CenteredBox />
+         <TypographyExample />
+         <ElevatedPaper />
+         <LinkedInButton />
+         <SignUpLink />
+         <StarRating />
+         <PaginationExample />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+3. **Run the Application**
+
+   Start your React application using `npm start` or `yarn start` and open it in a web browser.
