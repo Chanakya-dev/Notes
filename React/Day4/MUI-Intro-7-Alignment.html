@@ -468,3 +468,105 @@ yarn start
 6. **Pagination**: Uses `Box` and `MuiPagination` components to add pagination to the page.
 
 By following these steps, you can create a website with a well-structured and responsive layout using Material UI. Each component is designed to demonstrate different layout techniques and styling options available in Material UI.
+
+
+#######################################
+Apply theme and roboto font:
+
+### Update `theme.js`
+
+Ensure you are importing `createTheme` and other utilities from `@mui/material/styles`:
+
+```javascript
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#3f51b5',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  },
+});
+
+export default theme;
+```
+
+### Update `index.js`
+
+Make sure you are importing from `@mui/material/styles` and `@fontsource/roboto` correctly:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
+import '@fontsource/roboto'; // This will load the Roboto font
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+### Update `App.js`
+
+Here's the `App.js` file again to ensure correct usage of Material-UI components:
+
+```jsx
+import React from "react";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import MainContent from "./components/MainContent";
+import FeaturedCompanies from "./components/FeaturedCompanies";
+import Footer from "./components/Footer";
+import Pagination from "./components/Pagination";
+import { Grid, Box, Container } from "@mui/material";
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <Box sx={{ padding: 2 }}>
+              <Sidebar />
+            </Box>
+          </Grid>
+          <Grid item xs={10}>
+            <Box sx={{ padding: 2 }}>
+              <MainContent />
+              <FeaturedCompanies />
+              <Pagination />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Ensure Correct Installation
+
+Ensure you have the correct packages installed. Run the following command to install the necessary dependencies:
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled @fontsource/roboto
+```
+
+This setup should resolve the module not found error and allow you to use Material-UI (`@mui/material`) with theming and custom fonts.        
