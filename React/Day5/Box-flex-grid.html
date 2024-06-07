@@ -101,9 +101,48 @@ export default FlexExample;
 - `alignItems: 'center'`: Centers the flex items vertically.
 - `p`: Adds padding to the flex items.
 
-### Diagram
+### Make Items as buttons inside Flex
 
-![Flex Container](https://via.placeholder.com/600x400?text=Flex+Container)
+import React from 'react';
+import { Box, Button } from '@mui/material';
+
+function FlexButtonExample() {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        backgroundColor: 'secondary.main',
+      }}
+    >
+      <Button
+        variant="contained"
+        sx={{ m: 2, backgroundColor: 'primary.main', color: 'white' }}
+      >
+        Item 1
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ m: 2, backgroundColor: 'primary.main', color: 'white' }}
+      >
+        Item 2
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ m: 2, backgroundColor: 'primary.main', color: 'white' }}
+      >
+        Item 3
+      </Button>
+    </Box>
+  );
+}
+
+export default FlexButtonExample;
+
+
+
 
 ### Grid Component
 
