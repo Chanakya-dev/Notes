@@ -1,4 +1,4 @@
-Let's create exercises for each component where the student will be able to create a new React component, import it into `App.js`, and see the results.
+import paths for Material-UI v5, here’s how you can create exercises for each component where the student will be able to create a new React component, import it into `App.js`, and see the results.
 
 ### 1. Grid Component
 
@@ -8,7 +8,7 @@ Let's create exercises for each component where the student will be able to crea
 
    ```jsx
    import React from 'react';
-   import { Grid, Paper } from '@material-ui/core';
+   import { Grid, Paper } from '@mui/material';
 
    const ResponsiveGrid = () => {
      return (
@@ -58,7 +58,7 @@ Let's create exercises for each component where the student will be able to crea
 
    ```jsx
    import React from 'react';
-   import { Box, Typography } from '@material-ui/core';
+   import { Box, Typography } from '@mui/material';
 
    const CenteredBox = () => {
      return (
@@ -102,7 +102,7 @@ Let's create exercises for each component where the student will be able to crea
 
    ```jsx
    import React from 'react';
-   import { Typography, Box } from '@material-ui/core';
+   import { Typography, Box } from '@mui/material';
 
    const TypographyExample = () => {
      return (
@@ -152,23 +152,20 @@ Let's create exercises for each component where the student will be able to crea
 1. **Create a New React Component: `HeaderAppBar.js`**
 
    ```jsx
-// HeaderAppBar.js
+   import React from 'react';
+   import { AppBar, Toolbar, Typography } from '@mui/material';
 
-import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+   const HeaderAppBar = () => {
+     return (
+       <AppBar position="static" color="primary">
+         <Toolbar>
+           <Typography variant="h6">Header</Typography>
+         </Toolbar>
+       </AppBar>
+     );
+   };
 
-const HeaderAppBar = () => {
-  return (
-    <AppBar position="static" color="primary">
-      <Toolbar>
-        <Typography variant="h6">Header</Typography>
-      </Toolbar>
-    </AppBar>
-  );
-};
-
-export default HeaderAppBar;
-
+   export default HeaderAppBar;
    ```
 
 2. **Integrate the Component in `App.js`**
@@ -206,12 +203,12 @@ export default HeaderAppBar;
 
    ```jsx
    import React from 'react';
-   import { Toolbar, Typography } from '@material-ui/core';
+   import { Toolbar, Typography } from '@mui/material';
 
    const CustomToolbar = () => {
      return (
        <Toolbar>
-         <Typography variant="h6">Header</Typography>
+         <Typography variant="h6">Toolbar</Typography>
        </Toolbar>
      );
    };
@@ -256,7 +253,7 @@ export default HeaderAppBar;
 
    ```jsx
    import React from 'react';
-   import { Paper, Typography } from '@material-ui/core';
+   import { Paper, Typography } from '@mui/material';
 
    const ElevatedPaper = () => {
      return (
@@ -308,13 +305,13 @@ export default HeaderAppBar;
 
    ```jsx
    import React from 'react';
-   import { IconButton } from '@material-ui/core';
-   import LinkedIn from '@material-ui/icons/LinkedIn';
+   import { IconButton } from '@mui/material';
+   import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
    const LinkedInButton = () => {
      return (
        <IconButton color="inherit" href="https://www.linkedin.com">
-         <LinkedIn />
+         <LinkedInIcon />
        </IconButton>
      );
    };
@@ -363,19 +360,19 @@ export default HeaderAppBar;
 
    ```jsx
    import React from 'react';
-   import { Link } from '@material-ui/core';
+   import { Link } from '@mui/material';
 
    const SignUpLink = () => {
      return (
        <Link href="#" color="inherit">
          Sign Up
-       </Link>
+      
+
+ </Link>
      );
    };
 
    export default SignUpLink;
-
-
    ```
 
 2. **Integrate the Component in `App.js`**
@@ -421,7 +418,7 @@ export default HeaderAppBar;
 
    ```jsx
    import React from 'react';
-   import { Rating } from '@material-ui/lab';
+   import { Rating } from '@mui/material';
 
    const StarRating = () => {
      return (
@@ -477,7 +474,7 @@ export default HeaderAppBar;
 
    ```jsx
    import React from 'react';
-   import { Pagination } from '@material-ui/lab';
+   import { Pagination } from '@mui/material';
 
    const PaginationExample = () => {
      return (
