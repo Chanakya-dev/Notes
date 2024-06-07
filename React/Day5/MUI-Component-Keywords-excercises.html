@@ -152,20 +152,23 @@ Let's create exercises for each component where the student will be able to crea
 1. **Create a New React Component: `HeaderAppBar.js`**
 
    ```jsx
-   import React from 'react';
-   import { AppBar, Toolbar, Typography } from '@material-ui/core';
+// HeaderAppBar.js
 
-   const HeaderAppBar = () => {
-     return (
-       <AppBar position="static" color="primary">
-         <Toolbar>
-           <Typography variant="h6">Header</Typography>
-         </Toolbar>
-       </AppBar>
-     );
-   };
+import React from 'react';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
-   export default HeaderAppBar;
+const HeaderAppBar = () => {
+  return (
+    <AppBar position="static" color="primary">
+      <Toolbar>
+        <Typography variant="h6">Header</Typography>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default HeaderAppBar;
+
    ```
 
 2. **Integrate the Component in `App.js`**
