@@ -1,0 +1,246 @@
+### Detailed Step-by-Step Tutorial for Codeium
+
+#### Introduction
+Codeium is an AI-powered coding assistant that helps developers write code faster and with fewer errors. This tutorial will guide you through the process of setting up and using Codeium, specifically focusing on using Java. We'll also cover prompt engineering to maximize the benefits of Codeium.
+
+#### Prerequisites
+Before starting this tutorial, ensure you have:
+- Visual Studio Code installed
+- Basic knowledge of Java programming
+
+#### 1. Setting Up Codeium
+
+##### Step 1: Install Visual Studio Code
+1. **Download Visual Studio Code** from the [official website](https://code.visualstudio.com/).
+2. Follow the installation instructions for your operating system.
+
+##### Step 2: Install the Codeium Extension
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or by pressing `Ctrl+Shift+X`.
+3. Search for "Codeium" in the search bar.
+4. Click "Install" to add the Codeium extension.
+
+##### Step 3: Create a Codeium Account
+1. Visit the Codeium [registration page](https://codeium.com/register).
+2. Sign up with your email and set up a password.
+3. Verify your email address.
+
+##### Step 4: Configure the Extension
+1. Open Visual Studio Code.
+2. Go to the Codeium settings (click on the gear icon next to the Codeium extension in the Extensions view).
+3. Log in with your Codeium account credentials.
+4. Customize the settings according to your preferences (e.g., enabling/disabling specific features).
+
+#### 2. Using Codeium Features
+
+##### Feature 1: Code Completion
+1. **Create a New Java Project:**
+   - Open Visual Studio Code.
+   - Click on `File > Open Folder` and select an existing project or create a new folder for your project.
+   - Create a new file named `Main.java`.
+
+2. **Write Basic Java Code:**
+   - Start typing your code. For example, type `public class Main {`.
+   - Codeium will provide suggestions to complete your code based on context.
+   - Use the arrow keys to navigate through suggestions and press `Enter` to select one.
+
+Example:
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World");
+    }
+}
+```
+
+##### Feature 2: Syntax Suggestions
+1. **Intentionally Introduce an Error:**
+   - Write a piece of code that might contain errors or is incomplete.
+   - For example, remove the semicolon at the end of the `System.out.println` statement.
+
+2. **Use Codeium to Detect and Suggest Fixes:**
+   - Codeium will underline potential issues and provide suggestions for fixes.
+   - Hover over the underlined code to see the suggestion and apply it by clicking on the suggestion.
+
+##### Feature 3: Code Refactoring
+1. **Write a Simple Java Function:**
+   - Create a function that calculates the sum of two numbers.
+
+Example:
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(sum(5, 10));
+    }
+
+    public static int sum(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+2. **Refactor the Code:**
+   - Select the `sum` method.
+   - Right-click and choose `Refactor with Codeium`.
+   - Follow the prompts to refactor your code for better readability and performance.
+
+#### 3. Prompt Engineering with Codeium
+
+Prompt engineering involves crafting inputs (prompts) to get the best possible responses from Codeium. Here’s how to do it:
+
+##### Step 1: Write Clear and Specific Prompts
+1. **Be Descriptive:**
+   - Describe the functionality you want in detail.
+
+Example:
+```java
+// Write a function to calculate the factorial of a number
+public static int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+```
+
+2. **Specify the Context:**
+   - Provide the context in which the code will be used.
+
+Example:
+```java
+// In a class that handles mathematical operations
+public class MathOperations {
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+}
+```
+
+##### Step 2: Use Comments to Guide Codeium
+1. **Add Comments:**
+   - Use comments to guide Codeium on what you want to achieve.
+
+Example:
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Call the factorial method and print the result
+        System.out.println(factorial(5));
+    }
+
+    // Method to calculate factorial
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+}
+```
+
+#### 4. Hands-On Practice
+
+##### Practice Exercise 1: Code Completion
+- Create a new Java file named `MathOperations.java`.
+- Write a function to find the greatest common divisor (GCD) of two numbers.
+- Use Codeium’s suggestions to complete the function.
+
+Example:
+```java
+public class MathOperations {
+    // Method to find the greatest common divisor
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
+```
+
+##### Practice Exercise 2: Bug Detection
+- Create a Java file named `Calculator.java` with a function that divides two numbers.
+- Intentionally introduce a syntax error and use Codeium to detect and suggest a fix.
+
+Example:
+```java
+public class Calculator {
+    // Method to divide two numbers
+    public static int divide(int a, int b {
+        return a / b;
+    }
+}
+```
+
+##### Practice Exercise 3: Code Refactoring
+- Create a Java file named `HelloWorld.java`.
+- Use Codeium to refactor the code for better structure.
+
+Example:
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World");
+    }
+}
+```
+
+#### 5. Advanced Features
+
+##### Feature 1: Code Documentation
+1. **Generate Documentation:**
+   - Select a function or class.
+   - Right-click and choose `Generate Documentation with Codeium`.
+   - Review and edit the generated documentation.
+
+Example:
+```java
+/**
+ * Class containing mathematical operations
+ */
+public class MathOperations {
+    /**
+     * Method to calculate the factorial of a number
+     *
+     * @param n the number to calculate the factorial for
+     * @return the factorial of n
+     */
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * factorial(n - 1);
+    }
+}
+```
+
+##### Feature 2: Integration with Version Control
+1. **Commit Messages:**
+   - Ensure you have a Git repository initialized.
+   - Codeium can suggest commit messages and help with code reviews.
+   - Use `git commit` and let Codeium suggest an appropriate commit message.
+
+Example:
+```bash
+git add .
+git commit -m "Implemented factorial method in MathOperations class"
+```
+
+#### 6. Best Practices
+- Regularly update the Codeium extension for the latest features and improvements.
+- Customize Codeium settings to suit your coding style and preferences.
+- Use Codeium as a guide but always review and understand the code suggestions.
+
+#### Conclusion
+Codeium is a powerful tool that can significantly enhance your coding efficiency and reduce errors. By integrating Codeium into your coding workflow, you can focus more on solving problems and less on syntax and boilerplate code.
+
+#### Additional Resources
+- [Codeium Documentation](https://codeium.com/docs)
+- [Codeium Community Forums](https://community.codeium.com)
+- [Codeium GitHub Repository](https://github.com/codeium)
+
+### Hands-on Workshop
+To reinforce learning, plan a hands-on workshop where students can practice using Codeium in real-time, working on small projects or solving coding challenges with the assistance of Codeium.
