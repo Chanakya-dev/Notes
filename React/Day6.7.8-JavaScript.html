@@ -1885,191 +1885,191 @@ Arrow('Alice'))}>Greet with Arrow</button>
    Update `JavaScriptFundamentals.js` to demonstrate promises and async/await.
 
    ```jsx
-   import React, { useState } from 'react';
+import React, { useState } from 'react';
 
-   const JavaScriptFundamentals = () => {
-     const [message, setMessage] = useState('');
-     const [counter, setCounter] = useState(0);
-     const [person, setPerson] = useState({ name: 'John', age: 25 });
-     const [list, setList] = useState([1, 2, 3]);
+const JavaScriptFundamentals = () => {
+  const [message, setMessage] = useState('');
+  const [counter, setCounter] = useState(0);
+  const [person, setPerson] = useState({ name: 'John', age: 25 });
+  const [list, setList] = useState([1, 2, 3]);
+  const [day, setDay] = useState('Monday'); // Added state for day
 
-     const showVariables = () => {
-       let number = 42;
-       let text = 'Hello, World!';
-       let flag = true;
-       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
-     };
+  const showVariables = () => {
+    let number = 42;
+    let text = 'Hello, World!';
+    let flag = true;
+    setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+  };
 
-     const checkAge = () => {
-       if (person.age >= 18) {
-         setMessage('Adult');
-       } else {
-         setMessage('Minor');
-       }
-     };
+  const checkAge = () => {
+    if (person.age >= 18) {
+      setMessage('Adult');
+    } else {
+      setMessage('Minor');
+    }
+  };
 
-     const showDayMessage = () => {
-       switch (day) {
-         case 'Monday':
-           setMessage('Start of the week');
-           break;
-         case 'Friday':
-           setMessage('End of the week');
-           break;
-         default:
-           setMessage('Midweek');
-       }
-     };
+  const showDayMessage = () => {
+    switch (day) {
+      case 'Monday':
+        setMessage('Start of the week');
+        break;
+      case 'Friday':
+        setMessage('End of the week');
+        break;
+      default:
+        setMessage('Midweek');
+    }
+  };
 
-     const incrementCounter = () => {
-       for (let i = 0; i < 5; i++) {
-         setCounter((prevCounter) => prevCounter + 1);
-       }
-     };
+  const incrementCounter = () => {
+    for (let i = 0; i < 5; i++) {
+      setCounter((prevCounter) => prevCounter + 1);
+    }
+  };
 
-     const greetExpression = function(name) {
-       return `Hello, ${name}!`;
-     };
+  const greetExpression = function(name) {
+    return `Hello, ${name}!`;
+  };
 
-     const greetArrow = (name) => `Hello, ${name}!`;
+  const greetArrow = (name) => `Hello, ${name}!`;
 
-     const showScope = () => {
-       let globalVar = 'I am global';
+  const showScope = () => {
+    let globalVar = 'I am global';
 
-       function localScope() {
-         // Local Scope
-         let localVar = 'I am local';
-         console.log(globalVar); // Accessible
-         console.log(localVar); // Accessible
-       }
+    function localScope() {
+      // Local Scope
+      let localVar = 'I am local';
+      console.log(globalVar); // Accessible
+      console.log(localVar); // Accessible
+    }
 
-       localScope();
-       setMessage(globalVar);
-     };
+    localScope();
+    setMessage(globalVar);
+  };
 
-     const showPerson = () => {
-       let person = {
-         name: 'Alice',
-         age: 30,
-         greet: function() {
-           console.log(`Hello, my name is ${this.name}`);
-         },
-       };
+  const showPerson = () => {
+    let person = {
+      name: 'Alice',
+      age: 30,
+      greet: function() {
+        console.log(`Hello, my name is ${this.name}`);
+      },
+    };
 
-       setMessage(`Name: ${person.name}, Age: ${person.age}`);
-       person.greet();
-     };
+    setMessage(`Name: ${person.name}, Age: ${person.age}`);
+    person.greet();
+  };
 
-     const addToList = () => {
-       setList((prevList) => [...prevList, prevList.length + 1]);
-     };
+  const addToList = () => {
+    setList((prevList) => [...prevList, prevList.length + 1]);
+  };
 
-     const handleButtonClick = () => {
-       alert('Button was clicked!');
-     };
+  const handleButtonClick = () => {
+    alert('Button was clicked!');
+  };
 
-     const showLetConst = () => {
-       let mutableVar = 'I can change';
-       const immutableVar = 'I cannot change';
+  const showLetConst = () => {
+    let mutableVar = 'I can change';
+    const immutableVar = 'I cannot change';
 
-       // Block scope
-       if (true) {
-         let blockVar = 'I am block scoped';
-         console.log(blockVar); // Accessible
-       }
-       // console.log(blockVar); // Unaccessible
+    // Block scope
+    if (true) {
+      let blockVar = 'I am block scoped';
+      console.log(blockVar); // Accessible
+    }
+    // console.log(blockVar); // Unaccessible
 
-       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
-     };
+    setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
+  };
 
-     const showTemplateLiterals = () => {
-       let name = 'Alice';
-       let greeting = `Hello, ${name}!`;
-       setMessage(greeting);
-     };
+  const showTemplateLiterals = () => {
+    let name = 'Alice';
+    let greeting = `Hello, ${name}!`;
+    setMessage(greeting);
+  };
 
-     const showDestructuring = () => {
-       let person = { name: 'Alice', age: 30 };
-       let { name, age } = person;
-       setMessage(`Name: ${name}, Age: ${age}`);
+  const showDestructuring = () => {
+    let person = { name: 'Alice', age: 30 };
+    let { name, age } = person;
+    setMessage(`Name: ${name}, Age: ${age}`);
 
-       let numbers = [1, 2, 3];
-       let [first, second, third] = numbers;
-       console.log(`First: ${first}, Second: ${second}, Third: ${third}`);
-     };
+    let numbers = [1, 2, 3];
+    let [first, second, third] = numbers;
+    console.log(`First: ${first}, Second: ${second}, Third: ${third}`);
+  };
 
-     const showSpreadRest = () => {
-       let numbers = [1, 2, 3];
-       let newNumbers = [...numbers, 4, 5];
-       setMessage(`New Numbers: ${newNumbers.join(', ')}`);
+  const showSpreadRest = () => {
+    let numbers = [1, 2, 3];
+    let newNumbers = [...numbers, 4, 5];
+    setMessage(`New Numbers: ${newNumbers.join(', ')}`);
 
-       function sum(...args) {
-         return args.reduce((acc, val) => acc + val, 0);
-       }
+    function sum(...args) {
+      return args.reduce((acc, val) => acc + val, 0);
+    }
 
-       console.log(`Sum: ${sum(1, 2, 3, 4, 5)}`);
-     };
+    console.log(`Sum: ${sum(1, 2, 3, 4, 5)}`);
+  };
 
-     // Example of promises and async/await
-     const showPromisesAsyncAwait = async () => {
-       let promise = new Promise((resolve, reject) => {
-         let success = true;
-         if (success) {
-           resolve('Promise resolved');
-         } else {
-           reject('Promise rejected');
-         }
-       });
+  // Example of promises and async/await
+  const showPromisesAsyncAwait = async () => {
+    let promise = new Promise((resolve, reject) => {
+      let success = true;
+      if (success) {
+        resolve('Promise resolved');
+      } else {
+        reject('Promise rejected');
+      }
+    });
 
-       promise
-         .then((result) => setMessage(result))
-         .catch((error) => setMessage(error));
+    promise
+      .then((result) => setMessage(result))
+      .catch((error) => setMessage(error));
 
-       async function fetchData() {
-         try {
-           let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-           let data = await response.json();
-           setMessage(`Fetched Data: ${JSON.stringify(data)}`);
-         } catch (error) {
-           setMessage('Error fetching data');
-         }
-       }
+    async function fetchData() {
+      try {
+        let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        let data = await response.json();
+        setMessage(`Fetched Data: ${JSON.stringify(data)}`);
+      } catch (error) {
+        setMessage('Error fetching data');
+      }
+    }
 
-       fetchData();
-     };
+    fetchData();
+  };
 
-     return (
-       <div>
-         <h1 id="header">JavaScript Fundamentals with React</h1>
-         <div>
-           <button onClick={showVariables}>Show Variables</button>
-           <button onClick={checkAge}>Check Age</button>
-           <button onClick={showDayMessage}>Show Day Message</button>
-           <button onClick={incrementCounter}>Increment Counter</button>
-           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
-           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
-           <button onClick={showScope}>Show Scope</button>
-           <button onClick={showPerson}>Show Person</
+  return (
+    <div>
+      <h1 id="header">JavaScript Fundamentals with React</h1>
+      <div>
+        <button onClick={showVariables}>Show Variables</button>
+        <button onClick={checkAge}>Check Age</button>
+        <button onClick={showDayMessage}>Show Day Message</button>
+        <button onClick={incrementCounter}>Increment Counter</button>
+        <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+        <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+        <button onClick={showScope}>Show Scope</button>
+        <button onClick={showPerson}>Show Person</button>
+        <button onClick={addToList}>Add to List</button>
+        <button onClick={handleButtonClick}>Click Me</button>
+        <button onClick={showLetConst}>Show Let and Const</button>
+        <button onClick={showTemplateLiterals}>Show Template Literals</button>
+        <button onClick={showDestructuring}>Show Destructuring</button>
+        <button onClick={showSpreadRest}>Show Spread and Rest</button>
+        <button onClick={showPromisesAsyncAwait}>Show Promises and Async/Await</button>
+      </div>
+      <div>
+        <p>{message}</p>
+        <p className="special">Counter: {counter}</p>
+        <p>List: {list.join(', ')}</p>
+      </div>
+    </div>
+  );
+};
 
-button>
-           <button onClick={addToList}>Add to List</button>
-           <button onClick={handleButtonClick}>Click Me</button>
-           <button onClick={showLetConst}>Show Let and Const</button>
-           <button onClick={showTemplateLiterals}>Show Template Literals</button>
-           <button onClick={showDestructuring}>Show Destructuring</button>
-           <button onClick={showSpreadRest}>Show Spread and Rest</button>
-           <button onClick={showPromisesAsyncAwait}>Show Promises and Async/Await</button>
-         </div>
-         <div>
-           <p>{message}</p>
-           <p className="special">Counter: {counter}</p>
-           <p>List: {list.join(', ')}</p>
-         </div>
-       </div>
-     );
-   };
+export default JavaScriptFundamentals;
 
-   export default JavaScriptFundamentals;
    ```
 
 4. **Verification:**
