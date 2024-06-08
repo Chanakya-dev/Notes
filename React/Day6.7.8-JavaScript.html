@@ -1,0 +1,2081 @@
+### JavaScript Fundamentals
+
+#### Variables and Data Types
+
+1. **Explanation:**
+   Variables are used to store data, and JavaScript supports various data types like numbers, strings, booleans, arrays, and objects.
+
+   ```javascript
+   // Variable declaration
+   var name = "John";
+   let age = 25;
+   const isStudent = true;
+
+   // Data Types
+   let number = 42; // Number
+   let text = "Hello, World!"; // String
+   let flag = false; // Boolean
+   let array = [1, 2, 3]; // Array
+   let object = { key: "value" }; // Object
+   ```
+
+2. **React Use Case:**
+   In React, state and props are used extensively to manage and pass data within components. Understanding how to declare and use variables and data types is fundamental.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate variables and data types.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+
+     // Example of variables and data types
+     const showVariables = () => {
+       let number = 42; // Number
+       let text = 'Hello, World!'; // String
+       let flag = true; // Boolean
+
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+         </div>
+         <div>
+           <p>{message}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Variables" button.
+   - You should see the message displaying the number, text, and boolean values.
+
+#### Operators and Expressions
+
+1. **Explanation:**
+   Operators are used to perform operations on variables and values.
+
+   ```javascript
+   // Arithmetic Operators
+   let sum = 10 + 5;
+   let difference = 10 - 5;
+   let product = 10 * 5;
+   let quotient = 10 / 5;
+
+   // Comparison Operators
+   let isEqual = (10 == "10"); // true
+   let isStrictEqual = (10 === "10"); // false
+   let isGreater = (10 > 5); // true
+   ```
+
+2. **React Use Case:**
+   Operators are used in conditional rendering and handling state changes in React components. For example, showing or hiding elements based on state conditions.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate operators and expressions.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [number1, setNumber1] = useState(10);
+     const [number2, setNumber2] = useState(5);
+
+     // Example of operators and expressions
+     const showOperators = () => {
+       let sum = number1 + number2;
+       let difference = number1 - number2;
+       let product = number1 * number2;
+       let quotient = number1 / number2;
+       let isEqual = (number1 == "10");
+       let isStrictEqual = (number1 === "10");
+       let isGreater = (number1 > number2);
+
+       setMessage(`Sum: ${sum}, Difference: ${difference}, Product: ${product}, Quotient: ${quotient}, isEqual: ${isEqual}, isStrictEqual: ${isStrictEqual}, isGreater: ${isGreater}`);
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showOperators}>Show Operators</button>
+         </div>
+         <div>
+           <p>{message}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Operators" button.
+   - You should see the results of the arithmetic and comparison operations displayed.
+
+#### Control Structures
+
+1. **Explanation:**
+   Control structures like if-else and switch-case are used to execute different code blocks based on certain conditions.
+
+   ```javascript
+   // if-else statement
+   if (age > 18) {
+       console.log("Adult");
+   } else {
+       console.log("Minor");
+   }
+
+   // switch-case statement
+   let day = "Monday";
+   switch (day) {
+       case "Monday":
+           console.log("Start of the week");
+           break;
+       case "Friday":
+           console.log("End of the week");
+           break;
+       default:
+           console.log("Midweek");
+   }
+   ```
+
+2. **React Use Case:**
+   Control structures like if-else and switch-case are used in React to conditionally render components or to perform actions based on user input or other conditions.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate control structures.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [day, setDay] = useState('Monday');
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     // Example of control structures
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+         </div>
+         <div>
+           <p>{message}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Check Age" button.
+   - You should see the message displaying "Adult" since the person's age is 25.
+   - Click the "Show Day Message" button to see the day-related message.
+
+#### Loops
+
+1. **Explanation:**
+   Loops like for-loops are used to repeat a block of code multiple times.
+
+   ```javascript
+   // for loop
+   for (let i = 0; i < 5; i++) {
+       console.log(i);
+   }
+
+   // while loop
+   let i = 0;
+   while (i < 5) {
+       console.log(i);
+       i++;
+   }
+
+   // do-while loop
+   let j = 0;
+   do {
+       console.log(j);
+       j++;
+   } while (j < 5);
+   ```
+
+2. **React Use Case:**
+   Loops are often used in React to render lists of components based on data arrays. For example, displaying a list of items from an array of data.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate loops.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     // Example of loops
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div
+
+>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p>Counter: {counter}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Increment Counter" button.
+   - You should see the counter value increase by 5.
+
+### Functions and Scope
+
+#### Defining and Calling Functions
+
+1. **Explanation:**
+   Functions are reusable blocks of code that perform a specific task.
+
+   ```javascript
+   function greet(name) {
+       return `Hello, ${name}!`;
+   }
+
+   console.log(greet("Alice"));
+   ```
+
+2. **React Use Case:**
+   React components can be written as functions (functional components). Understanding how to define and call functions is fundamental to creating and managing these components.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate functions.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     // Example of functions
+     const greet = (name) => `Hello, ${name}!`;
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greet('Alice'))}>Greet</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p>Counter: {counter}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Greet" button.
+   - You should see the greeting message "Hello, Alice!" displayed.
+
+#### Function Expressions and Arrow Functions
+
+1. **Explanation:**
+   Function expressions and arrow functions provide different syntaxes for defining functions.
+
+   ```javascript
+   // Function Expression
+   let greet = function(name) {
+       return `Hello, ${name}!`;
+   };
+
+   // Arrow Function
+   let greet = (name) => `Hello, ${name}!`;
+   ```
+
+2. **React Use Case:**
+   Arrow functions are frequently used in React, particularly in functional components and event handlers, due to their concise syntax and lexical scoping.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate function expressions and arrow functions.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     // Function Expression
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     // Arrow Function
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p>Counter: {counter}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Greet with Expression" and "Greet with Arrow" buttons.
+   - You should see the greeting messages displayed.
+
+#### Understanding Scope and Hoisting
+
+1. **Explanation:**
+   Scope determines the visibility of variables. Hoisting allows variables to be used before they are declared.
+
+   ```javascript
+   // Global Scope
+   let globalVar = "I am global";
+
+   function localScope() {
+       // Local Scope
+       let localVar = "I am local";
+       console.log(globalVar); // Accessible
+       console.log(localVar); // Accessible
+   }
+
+   localScope();
+   console.log(localVar); // Unaccessible
+   ```
+
+2. **React Use Case:**
+   Understanding scope is crucial in React to avoid issues related to variable access and to ensure proper state management within components.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate scope and hoisting.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     // Example of scope
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greet
+
+Arrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p>Counter: {counter}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Scope" button.
+   - You should see the global variable message displayed.
+
+### Objects and Arrays
+
+#### Creating and Manipulating Objects
+
+1. **Explanation:**
+   Objects are collections of key-value pairs.
+
+   ```javascript
+   let person = {
+       name: "Alice",
+       age: 30,
+       greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+       }
+   };
+
+   console.log(person.name); // Accessing property
+   person.greet(); // Calling method
+   ```
+
+2. **React Use Case:**
+   React components often deal with objects for state and props management. Understanding how to manipulate objects is essential for handling component data.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate objects.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     // Example of objects
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p>Counter: {counter}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Person" button.
+   - You should see the person's name and age displayed, and the greeting message in the console.
+
+#### Arrays and Array Methods
+
+1. **Explanation:**
+   Arrays are used to store multiple values in a single variable. Array methods allow you to manipulate arrays.
+
+   ```javascript
+   let numbers = [1, 2, 3, 4, 5];
+
+   // Accessing elements
+   console.log(numbers[0]); // 1
+
+   // Array methods
+   numbers.push(6); // Add to the end
+   numbers.pop(); // Remove from the end
+   numbers.shift(); // Remove from the beginning
+   numbers.unshift(0); // Add to the beginning
+
+   // Iterating over arrays
+   numbers.forEach(num => console.log(num));
+   ```
+
+2. **React Use Case:**
+   Arrays are frequently used to manage lists of data in React. Methods like `map` are used to render lists of components dynamically.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate arrays and array methods.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     // Example of array methods
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     return (
+       <div>
+         <h1>JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p>Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Add to List" button.
+   - You should see the list array updated with new elements.
+
+### DOM Manipulation
+
+#### Understanding the DOM
+
+1. **Explanation:**
+   The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.
+
+2. **React Use Case:**
+   React abstracts direct DOM manipulation using the virtual DOM, but understanding the actual DOM helps in understanding how React efficiently updates the user interface.
+
+#### Selecting and Modifying DOM Elements
+
+1. **Explanation:**
+   You can select and modify DOM elements using JavaScript
+
+.
+
+   ```javascript
+   // Selecting elements
+   let header = document.getElementById("header");
+   let paragraphs = document.getElementsByTagName("p");
+   let special = document.querySelector(".special");
+
+   // Modifying elements
+   header.innerText = "New Header";
+   special.style.color = "blue";
+   ```
+
+2. **React Use Case:**
+   React handles DOM manipulation under the hood, but understanding how it works helps in troubleshooting and optimizing React applications.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate selecting and modifying DOM elements.
+
+   ```jsx
+   import React, { useState, useEffect } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     // Example of DOM manipulation
+     useEffect(() => {
+       let header = document.getElementById('header');
+       let special = document.querySelector('.special');
+       header.innerText = 'New Header';
+       special.style.color = 'blue';
+     }, []);
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and you should see the header text change to "New Header" and the color of the counter text change to blue.
+
+#### Event Handling
+
+1. **Explanation:**
+   Event handling allows you to execute code in response to user actions like clicks.
+
+   ```javascript
+   let button = document.querySelector("button");
+
+   button.addEventListener("click", function() {
+       alert("Button was clicked!");
+   });
+   ```
+
+2. **React Use Case:**
+   Event handling in React is similar to JavaScript but uses a different syntax. Understanding JavaScript event handling is essential for implementing React event handlers.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate event handling.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     // Example of event handling
+     const handleButtonClick = () => {
+       alert('Button was clicked!');
+     };
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+           <button onClick={handleButtonClick}>Click Me</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Click Me" button.
+   - You should see an alert box with the message "Button was clicked!".
+
+### ES6 and Beyond
+
+#### Introduction to ES6 Features
+
+1. **Explanation:**
+   ES6 introduced many new features and syntactic improvements.
+
+#### Let and Const
+
+1. **Explanation:**
+   `let` and `const` provide block scope and prevent variable hoisting.
+
+   ```javascript
+   let mutableVar = "I can change";
+   const immutableVar = "I cannot change";
+
+   // Block scope
+   if (true) {
+       let blockVar = "I am block scoped";
+   }
+   console.log(blockVar); // Unaccessible
+   ```
+
+2. **React Use Case:**
+   Using `let` and `const` helps manage state and variables
+
+ within React components, ensuring proper scoping and immutability where needed.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate `let` and `const`.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     const handleButtonClick = () => {
+       alert('Button was clicked!');
+     };
+
+     // Example of let and const
+     const showLetConst = () => {
+       let mutableVar = 'I can change';
+       const immutableVar = 'I cannot change';
+
+       // Block scope
+       if (true) {
+         let blockVar = 'I am block scoped';
+         console.log(blockVar); // Accessible
+       }
+       // console.log(blockVar); // Unaccessible
+
+       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
+     };
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+           <button onClick={handleButtonClick}>Click Me</button>
+           <button onClick={showLetConst}>Show Let and Const</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Let and Const" button.
+   - You should see the values of `mutableVar` and `immutableVar` displayed.
+
+#### Template Literals
+
+1. **Explanation:**
+   Template literals allow you to embed expressions within string literals using backticks.
+
+   ```javascript
+   let name = "Alice";
+   let greeting = `Hello, ${name}!`;
+   console.log(greeting);
+   ```
+
+2. **React Use Case:**
+   Template literals are used in React for constructing strings dynamically, such as creating class names or inline styles based on component state.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate template literals.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     const handleButtonClick = () => {
+       alert('Button was clicked!');
+     };
+
+     const showLetConst = () => {
+       let mutableVar = 'I can change';
+       const immutableVar = 'I cannot change';
+
+       // Block scope
+       if (true) {
+         let blockVar = 'I am block scoped';
+         console.log(blockVar); // Accessible
+       }
+       // console.log(blockVar); // Unaccessible
+
+       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
+     };
+
+     // Example of template literals
+     const showTemplateLiterals = () => {
+       let name = 'Alice';
+       let greeting = `Hello, ${name}!`;
+       setMessage(greeting);
+     };
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+           <button onClick={handleButtonClick}>Click Me</button>
+           <button onClick={showLetConst}>Show Let and Const</button>
+           <button onClick={showTemplateLiterals}>Show Template Literals</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application
+
+ and click the "Show Template Literals" button.
+   - You should see the greeting message "Hello, Alice!" displayed.
+
+#### Destructuring Assignment
+
+1. **Explanation:**
+   Destructuring assignment allows you to unpack values from arrays or properties from objects into distinct variables.
+
+   ```javascript
+   let person = { name: "Alice", age: 30 };
+
+   // Object destructuring
+   let { name, age } = person;
+
+   // Array destructuring
+   let numbers = [1, 2, 3];
+   let [first, second, third] = numbers;
+   ```
+
+2. **React Use Case:**
+   Destructuring is commonly used in React to extract props and state values concisely, making the code more readable.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate destructuring assignment.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     const handleButtonClick = () => {
+       alert('Button was clicked!');
+     };
+
+     const showLetConst = () => {
+       let mutableVar = 'I can change';
+       const immutableVar = 'I cannot change';
+
+       // Block scope
+       if (true) {
+         let blockVar = 'I am block scoped';
+         console.log(blockVar); // Accessible
+       }
+       // console.log(blockVar); // Unaccessible
+
+       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
+     };
+
+     const showTemplateLiterals = () => {
+       let name = 'Alice';
+       let greeting = `Hello, ${name}!`;
+       setMessage(greeting);
+     };
+
+     // Example of destructuring assignment
+     const showDestructuring = () => {
+       let person = { name: 'Alice', age: 30 };
+       let { name, age } = person;
+       setMessage(`Name: ${name}, Age: ${age}`);
+
+       let numbers = [1, 2, 3];
+       let [first, second, third] = numbers;
+       console.log(`First: ${first}, Second: ${second}, Third: ${third}`);
+     };
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+           <button onClick={handleButtonClick}>Click Me</button>
+           <button onClick={showLetConst}>Show Let and Const</button>
+           <button onClick={showTemplateLiterals}>Show Template Literals</button>
+           <button onClick={showDestructuring}>Show Destructuring</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Destructuring" button.
+   - You should see the person's name and age displayed, and the destructured array values logged in the console.
+
+#### Spread and Rest Operators
+
+1. **Explanation:**
+   The spread operator allows you to expand elements of an array or object, while the rest operator allows you to represent an indefinite number of elements as an array.
+
+   ```javascript
+   // Spread operator
+   let numbers = [1, 2, 3];
+   let newNumbers = [...numbers, 4, 5];
+
+   // Rest operator
+   function sum(...args) {
+       return args.reduce((acc, val) => acc + val, 0);
+   }
+   ```
+
+2. **React Use Case:**
+   The spread operator is useful for updating state immutably, while the rest operator helps handle variable numbers of arguments in functions, including event handlers in React.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate spread and rest operators.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     const handleButtonClick = () => {
+       alert('Button was clicked!');
+     };
+
+     const showLetConst = () => {
+       let mutableVar = 'I can change';
+       const immutableVar = 'I cannot change';
+
+       // Block scope
+       if (true) {
+         let blockVar = 'I am block scoped';
+         console.log(blockVar); // Accessible
+       }
+      
+
+ // console.log(blockVar); // Unaccessible
+
+       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
+     };
+
+     const showTemplateLiterals = () => {
+       let name = 'Alice';
+       let greeting = `Hello, ${name}!`;
+       setMessage(greeting);
+     };
+
+     const showDestructuring = () => {
+       let person = { name: 'Alice', age: 30 };
+       let { name, age } = person;
+       setMessage(`Name: ${name}, Age: ${age}`);
+
+       let numbers = [1, 2, 3];
+       let [first, second, third] = numbers;
+       console.log(`First: ${first}, Second: ${second}, Third: ${third}`);
+     };
+
+     // Example of spread and rest operators
+     const showSpreadRest = () => {
+       let numbers = [1, 2, 3];
+       let newNumbers = [...numbers, 4, 5];
+       setMessage(`New Numbers: ${newNumbers.join(', ')}`);
+
+       function sum(...args) {
+         return args.reduce((acc, val) => acc + val, 0);
+       }
+
+       console.log(`Sum: ${sum(1, 2, 3, 4, 5)}`);
+     };
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</button>
+           <button onClick={addToList}>Add to List</button>
+           <button onClick={handleButtonClick}>Click Me</button>
+           <button onClick={showLetConst}>Show Let and Const</button>
+           <button onClick={showTemplateLiterals}>Show Template Literals</button>
+           <button onClick={showDestructuring}>Show Destructuring</button>
+           <button onClick={showSpreadRest}>Show Spread and Rest</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Spread and Rest" button.
+   - You should see the new array values displayed, and the sum of the numbers logged in the console.
+
+#### Promises and Async/Await
+
+1. **Explanation:**
+   Promises and async/await are used to handle asynchronous operations.
+
+   ```javascript
+   // Promises
+   let promise = new Promise((resolve, reject) => {
+       let success = true;
+       if (success) {
+           resolve("Promise resolved");
+       } else {
+           reject("Promise rejected");
+       }
+   });
+
+   promise.then(result => console.log(result)).catch(error => console.log(error));
+
+   // Async/Await
+   async function fetchData() {
+       try {
+           let response = await fetch("https://api.example.com/data");
+           let data = await response.json();
+           console.log(data);
+       } catch (error) {
+           console.log(error);
+       }
+   }
+   ```
+
+2. **React Use Case:**
+   Promises and async/await are used in React for handling asynchronous operations, such as fetching data from APIs. Understanding these concepts is essential for implementing side effects in React components using hooks like `useEffect`.
+
+3. **Implementation in React:**
+   Update `JavaScriptFundamentals.js` to demonstrate promises and async/await.
+
+   ```jsx
+   import React, { useState } from 'react';
+
+   const JavaScriptFundamentals = () => {
+     const [message, setMessage] = useState('');
+     const [counter, setCounter] = useState(0);
+     const [person, setPerson] = useState({ name: 'John', age: 25 });
+     const [list, setList] = useState([1, 2, 3]);
+
+     const showVariables = () => {
+       let number = 42;
+       let text = 'Hello, World!';
+       let flag = true;
+       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+     };
+
+     const checkAge = () => {
+       if (person.age >= 18) {
+         setMessage('Adult');
+       } else {
+         setMessage('Minor');
+       }
+     };
+
+     const showDayMessage = () => {
+       switch (day) {
+         case 'Monday':
+           setMessage('Start of the week');
+           break;
+         case 'Friday':
+           setMessage('End of the week');
+           break;
+         default:
+           setMessage('Midweek');
+       }
+     };
+
+     const incrementCounter = () => {
+       for (let i = 0; i < 5; i++) {
+         setCounter((prevCounter) => prevCounter + 1);
+       }
+     };
+
+     const greetExpression = function(name) {
+       return `Hello, ${name}!`;
+     };
+
+     const greetArrow = (name) => `Hello, ${name}!`;
+
+     const showScope = () => {
+       let globalVar = 'I am global';
+
+       function localScope() {
+         // Local Scope
+         let localVar = 'I am local';
+         console.log(globalVar); // Accessible
+         console.log(localVar); // Accessible
+       }
+
+       localScope();
+       setMessage(globalVar);
+     };
+
+     const showPerson = () => {
+       let person = {
+         name: 'Alice',
+         age: 30,
+         greet: function() {
+           console.log(`Hello, my name is ${this.name}`);
+         },
+       };
+
+       setMessage(`Name: ${person.name}, Age: ${person.age}`);
+       person.greet();
+     };
+
+     const addToList = () => {
+       setList((prevList) => [...prevList, prevList.length + 1]);
+     };
+
+     const handleButtonClick = () => {
+       alert('Button was clicked!');
+     };
+
+     const showLetConst = () => {
+       let mutableVar = 'I can change';
+       const immutableVar = 'I cannot change';
+
+       // Block scope
+       if (true) {
+         let blockVar = 'I am block scoped';
+         console.log(blockVar); // Accessible
+       }
+       // console.log(blockVar); // Unaccessible
+
+       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
+     };
+
+     const showTemplateLiterals = () => {
+       let name = 'Alice';
+       let greeting = `Hello, ${name}!`;
+       setMessage(greeting);
+     };
+
+     const showDestructuring = () => {
+       let person = { name: 'Alice', age: 30 };
+       let { name, age } = person;
+       setMessage(`Name: ${name}, Age: ${age}`);
+
+       let numbers = [1, 2, 3];
+       let [first, second, third] = numbers;
+       console.log(`First: ${first}, Second: ${second}, Third: ${third}`);
+     };
+
+     const showSpreadRest = () => {
+       let numbers = [1, 2, 3];
+       let newNumbers = [...numbers, 4, 5];
+       setMessage(`New Numbers: ${newNumbers.join(', ')}`);
+
+       function sum(...args) {
+         return args.reduce((acc, val) => acc + val, 0);
+       }
+
+       console.log(`Sum: ${sum(1, 2, 3, 4, 5)}`);
+     };
+
+     // Example of promises and async/await
+     const showPromisesAsyncAwait = async () => {
+       let promise = new Promise((resolve, reject) => {
+         let success = true;
+         if (success) {
+           resolve('Promise resolved');
+         } else {
+           reject('Promise rejected');
+         }
+       });
+
+       promise
+         .then((result) => setMessage(result))
+         .catch((error) => setMessage(error));
+
+       async function fetchData() {
+         try {
+           let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+           let data = await response.json();
+           setMessage(`Fetched Data: ${JSON.stringify(data)}`);
+         } catch (error) {
+           setMessage('Error fetching data');
+         }
+       }
+
+       fetchData();
+     };
+
+     return (
+       <div>
+         <h1 id="header">JavaScript Fundamentals with React</h1>
+         <div>
+           <button onClick={showVariables}>Show Variables</button>
+           <button onClick={checkAge}>Check Age</button>
+           <button onClick={showDayMessage}>Show Day Message</button>
+           <button onClick={incrementCounter}>Increment Counter</button>
+           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
+           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
+           <button onClick={showScope}>Show Scope</button>
+           <button onClick={showPerson}>Show Person</
+
+button>
+           <button onClick={addToList}>Add to List</button>
+           <button onClick={handleButtonClick}>Click Me</button>
+           <button onClick={showLetConst}>Show Let and Const</button>
+           <button onClick={showTemplateLiterals}>Show Template Literals</button>
+           <button onClick={showDestructuring}>Show Destructuring</button>
+           <button onClick={showSpreadRest}>Show Spread and Rest</button>
+           <button onClick={showPromisesAsyncAwait}>Show Promises and Async/Await</button>
+         </div>
+         <div>
+           <p>{message}</p>
+           <p className="special">Counter: {counter}</p>
+           <p>List: {list.join(', ')}</p>
+         </div>
+       </div>
+     );
+   };
+
+   export default JavaScriptFundamentals;
+   ```
+
+4. **Verification:**
+   - Run the application and click the "Show Promises and Async/Await" button.
+   - You should see the promise result and fetched data displayed.
+
+### Conclusion
+
+By following this structured approach, each JavaScript concept is explained, implemented, and verified in the React DOM before moving on to the next one. This ensures a clear understanding and practical application of JavaScript fundamentals within a React project.
