@@ -841,281 +841,161 @@ Arrow('Alice'))}>Greet with Arrow</button>
 2. **React Use Case:**
    React abstracts direct DOM manipulation using the virtual DOM, but understanding the actual DOM helps in understanding how React efficiently updates the user interface.
 
-#### Selecting and Modifying DOM Elements
+The errors you're encountering suggest that the `@emotion/react` and `@emotion/styled` packages, which are required by Material-UI's styled engine, are missing. To resolve this issue, you need to install these dependencies.
 
-1. **Explanation:**
-   You can select and modify DOM elements using JavaScript
+Here are the steps to install the required packages:
 
-.
+1. Open your terminal.
+2. Navigate to your project directory.
+3. Run the following commands to install `@emotion/react` and `@emotion/styled`:
 
-   ```javascript
-   // Selecting elements
-   let header = document.getElementById("header");
-   let paragraphs = document.getElementsByTagName("p");
-   let special = document.querySelector(".special");
+```sh
+npm install @mui/material @emotion/react @emotion/styled
+```
 
-   // Modifying elements
-   header.innerText = "New Header";
-   special.style.color = "blue";
-   ```
+Once these packages are installed, your Material-UI components should work without any issues.
 
-2. **React Use Case:**
-   React handles DOM manipulation under the hood, but understanding how it works helps in troubleshooting and optimizing React applications.
+Here's the updated code snippet for DOM manipulation using Material-UI to ensure it aligns with the dependencies:
 
-3. **Implementation in React:**
-   Update `JavaScriptFundamentals.js` to demonstrate selecting and modifying DOM elements.
+```jsx
+import React, { useState, useEffect } from 'react';
+import { Button, Typography, Box, Grid } from '@mui/material';
 
-   ```jsx
-   import React, { useState, useEffect } from 'react';
+const JavaScriptFundamentals = () => {
+  const [message, setMessage] = useState('');
+  const [counter, setCounter] = useState(0);
+  const [person, setPerson] = useState({ name: 'John', age: 25 });
+  const [list, setList] = useState([1, 2, 3]);
+  const [day, setDay] = useState('Monday');
 
-   const JavaScriptFundamentals = () => {
-     const [message, setMessage] = useState('');
-     const [counter, setCounter] = useState(0);
-     const [person, setPerson] = useState({ name: 'John', age: 25 });
-     const [list, setList] = useState([1, 2, 3]);
+  const showVariables = () => {
+    let number = 42;
+    let text = 'Hello, World!';
+    let flag = true;
+    setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
+  };
 
-     const showVariables = () => {
-       let number = 42;
-       let text = 'Hello, World!';
-       let flag = true;
-       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
-     };
+  const checkAge = () => {
+    if (person.age >= 18) {
+      setMessage('Adult');
+    } else {
+      setMessage('Minor');
+    }
+  };
 
-     const checkAge = () => {
-       if (person.age >= 18) {
-         setMessage('Adult');
-       } else {
-         setMessage('Minor');
-       }
-     };
+  const showDayMessage = () => {
+    switch (day) {
+      case 'Monday':
+        setMessage('Start of the week');
+        break;
+      case 'Friday':
+        setMessage('End of the week');
+        break;
+      default:
+        setMessage('Midweek');
+    }
+  };
 
-     const showDayMessage = () => {
-       switch (day) {
-         case 'Monday':
-           setMessage('Start of the week');
-           break;
-         case 'Friday':
-           setMessage('End of the week');
-           break;
-         default:
-           setMessage('Midweek');
-       }
-     };
+  const incrementCounter = () => {
+    for (let i = 0; i < 5; i++) {
+      setCounter((prevCounter) => prevCounter + 1);
+    }
+  };
 
-     const incrementCounter = () => {
-       for (let i = 0; i < 5; i++) {
-         setCounter((prevCounter) => prevCounter + 1);
-       }
-     };
+  const greetExpression = (name) => `Hello, ${name}!`;
 
-     const greetExpression = function(name) {
-       return `Hello, ${name}!`;
-     };
+  const greetArrow = (name) => `Hello, ${name}!`;
 
-     const greetArrow = (name) => `Hello, ${name}!`;
+  const showScope = () => {
+    let globalVar = 'I am global';
 
-     const showScope = () => {
-       let globalVar = 'I am global';
+    function localScope() {
+      let localVar = 'I am local';
+      console.log(globalVar);
+      console.log(localVar);
+    }
 
-       function localScope() {
-         // Local Scope
-         let localVar = 'I am local';
-         console.log(globalVar); // Accessible
-         console.log(localVar); // Accessible
-       }
+    localScope();
+    setMessage(globalVar);
+  };
 
-       localScope();
-       setMessage(globalVar);
-     };
+  const showPerson = () => {
+    let person = {
+      name: 'Alice',
+      age: 30,
+      greet: function () {
+        console.log(`Hello, my name is ${this.name}`);
+      },
+    };
 
-     const showPerson = () => {
-       let person = {
-         name: 'Alice',
-         age: 30,
-         greet: function() {
-           console.log(`Hello, my name is ${this.name}`);
-         },
-       };
+    setMessage(`Name: ${person.name}, Age: ${person.age}`);
+    person.greet();
+  };
 
-       setMessage(`Name: ${person.name}, Age: ${person.age}`);
-       person.greet();
-     };
+  const addToList = () => {
+    setList((prevList) => [...prevList, prevList.length + 1]);
+  };
 
-     const addToList = () => {
-       setList((prevList) => [...prevList, prevList.length + 1]);
-     };
+  useEffect(() => {
+    let header = document.getElementById('header');
+    let special = document.querySelector('.special');
+    header.innerText = 'New Header';
+    special.style.color = 'blue';
+  }, []);
 
-     // Example of DOM manipulation
-     useEffect(() => {
-       let header = document.getElementById('header');
-       let special = document.querySelector('.special');
-       header.innerText = 'New Header';
-       special.style.color = 'blue';
-     }, []);
+  return (
+    <Box p={2}>
+      <Typography variant="h4" id="header" gutterBottom>
+        JavaScript Fundamentals with React
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item>
+          <Button variant="contained" onClick={showVariables}>Show Variables</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={checkAge}>Check Age</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={showDayMessage}>Show Day Message</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={incrementCounter}>Increment Counter</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={showScope}>Show Scope</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={showPerson}>Show Person</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" onClick={addToList}>Add to List</Button>
+        </Grid>
+      </Grid>
+      <Box mt={2}>
+        <Typography variant="body1" className="special">
+          {message}
+        </Typography>
+        <Typography variant="body1">
+          Counter: {counter}
+        </Typography>
+        <Typography variant="body1">
+          List: {list.join(', ')}
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
 
-     return (
-       <div>
-         <h1 id="header">JavaScript Fundamentals with React</h1>
-         <div>
-           <button onClick={showVariables}>Show Variables</button>
-           <button onClick={checkAge}>Check Age</button>
-           <button onClick={showDayMessage}>Show Day Message</button>
-           <button onClick={incrementCounter}>Increment Counter</button>
-           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
-           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
-           <button onClick={showScope}>Show Scope</button>
-           <button onClick={showPerson}>Show Person</button>
-           <button onClick={addToList}>Add to List</button>
-         </div>
-         <div>
-           <p>{message}</p>
-           <p className="special">Counter: {counter}</p>
-           <p>List: {list.join(', ')}</p>
-         </div>
-       </div>
-     );
-   };
+export default JavaScriptFundamentals;
+```
 
-   export default JavaScriptFundamentals;
-   ```
-
-4. **Verification:**
-   - Run the application and you should see the header text change to "New Header" and the color of the counter text change to blue.
-
-#### Event Handling
-
-1. **Explanation:**
-   Event handling allows you to execute code in response to user actions like clicks.
-
-   ```javascript
-   let button = document.querySelector("button");
-
-   button.addEventListener("click", function() {
-       alert("Button was clicked!");
-   });
-   ```
-
-2. **React Use Case:**
-   Event handling in React is similar to JavaScript but uses a different syntax. Understanding JavaScript event handling is essential for implementing React event handlers.
-
-3. **Implementation in React:**
-   Update `JavaScriptFundamentals.js` to demonstrate event handling.
-
-   ```jsx
-   import React, { useState } from 'react';
-
-   const JavaScriptFundamentals = () => {
-     const [message, setMessage] = useState('');
-     const [counter, setCounter] = useState(0);
-     const [person, setPerson] = useState({ name: 'John', age: 25 });
-     const [list, setList] = useState([1, 2, 3]);
-
-     const showVariables = () => {
-       let number = 42;
-       let text = 'Hello, World!';
-       let flag = true;
-       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
-     };
-
-     const checkAge = () => {
-       if (person.age >= 18) {
-         setMessage('Adult');
-       } else {
-         setMessage('Minor');
-       }
-     };
-
-     const showDayMessage = () => {
-       switch (day) {
-         case 'Monday':
-           setMessage('Start of the week');
-           break;
-         case 'Friday':
-           setMessage('End of the week');
-           break;
-         default:
-           setMessage('Midweek');
-       }
-     };
-
-     const incrementCounter = () => {
-       for (let i = 0; i < 5; i++) {
-         setCounter((prevCounter) => prevCounter + 1);
-       }
-     };
-
-     const greetExpression = function(name) {
-       return `Hello, ${name}!`;
-     };
-
-     const greetArrow = (name) => `Hello, ${name}!`;
-
-     const showScope = () => {
-       let globalVar = 'I am global';
-
-       function localScope() {
-         // Local Scope
-         let localVar = 'I am local';
-         console.log(globalVar); // Accessible
-         console.log(localVar); // Accessible
-       }
-
-       localScope();
-       setMessage(globalVar);
-     };
-
-     const showPerson = () => {
-       let person = {
-         name: 'Alice',
-         age: 30,
-         greet: function() {
-           console.log(`Hello, my name is ${this.name}`);
-         },
-       };
-
-       setMessage(`Name: ${person.name}, Age: ${person.age}`);
-       person.greet();
-     };
-
-     const addToList = () => {
-       setList((prevList) => [...prevList, prevList.length + 1]);
-     };
-
-     // Example of event handling
-     const handleButtonClick = () => {
-       alert('Button was clicked!');
-     };
-
-     return (
-       <div>
-         <h1 id="header">JavaScript Fundamentals with React</h1>
-         <div>
-           <button onClick={showVariables}>Show Variables</button>
-           <button onClick={checkAge}>Check Age</button>
-           <button onClick={showDayMessage}>Show Day Message</button>
-           <button onClick={incrementCounter}>Increment Counter</button>
-           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
-           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
-           <button onClick={showScope}>Show Scope</button>
-           <button onClick={showPerson}>Show Person</button>
-           <button onClick={addToList}>Add to List</button>
-           <button onClick={handleButtonClick}>Click Me</button>
-         </div>
-         <div>
-           <p>{message}</p>
-           <p className="special">Counter: {counter}</p>
-           <p>List: {list.join(', ')}</p>
-         </div>
-       </div>
-     );
-   };
-
-   export default JavaScriptFundamentals;
-   ```
-
-4. **Verification:**
-   - Run the application and click the "Click Me" button.
-   - You should see an alert box with the message "Button was clicked!".
+After installing the required dependencies and using the above code, your application should work correctly with Material-UI components.
 
 ### ES6 and Beyond
 
