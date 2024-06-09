@@ -513,3 +513,458 @@ Sure! Here are 50 interview questions on CSS along with their answers and exampl
       ```
 
 These questions and answers cover a wide range of CSS topics and provide practical examples to illustrate the concepts.
+Here are the HTML and CSS files incorporating all the examples and changes mentioned in the interview questions:
+
+### HTML File (index.html)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Interview Questions Examples</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>CSS Interview Questions Examples</h1>
+    
+    <!-- Question 2: Linking CSS File -->
+    <p>This paragraph is styled using an external CSS file.</p>
+
+    <!-- Question 3: Inline CSS -->
+    <p style="color: green;">This paragraph uses inline CSS.</p>
+
+    <!-- Question 3: Internal CSS -->
+    <style>
+        .internal-css {
+            color: orange;
+        }
+    </style>
+    <p class="internal-css">This paragraph uses internal CSS.</p>
+
+    <!-- Question 4: Box Model -->
+    <div class="box-model">Box Model Example</div>
+
+    <!-- Question 6: CSS Selectors -->
+    <div class="class-selector">Class Selector Example</div>
+    <div id="id-selector">ID Selector Example</div>
+    <input type="text" class="attribute-selector" placeholder="Attribute Selector Example">
+
+    <!-- Question 7: CSS Comments -->
+    <p>This is a paragraph with a <!-- comment --> inside it.</p>
+
+    <!-- Question 8: Class vs ID Selectors -->
+    <div class="class-vs-id">Class Selector Example</div>
+    <div id="class-vs-id">ID Selector Example</div>
+
+    <!-- Question 9: Inline, Inline-Block, Block Elements -->
+    <span class="inline-element">Inline</span>
+    <div class="block-element">Block</div>
+    <span class="inline-block-element">Inline-block</span>
+
+    <!-- Question 10: Centering Elements -->
+    <div class="center-container">
+        <div class="centered">Centered Element</div>
+    </div>
+
+    <!-- Question 11: Text Color -->
+    <p class="text-color">This text is blue.</p>
+
+    <!-- Question 13: Custom Font -->
+    <p class="custom-font">This text uses a custom font.</p>
+
+    <!-- Question 14: Line Height -->
+    <p class="line-height">This paragraph has a line height of 1.5.</p>
+
+    <!-- Question 15: Text Styles -->
+    <p class="bold-text">This text is bold.</p>
+    <p class="italic-text">This text is italic.</p>
+    <p class="underlined-text">This text is underlined.</p>
+
+    <!-- Question 17: Positioning -->
+    <div class="relative">Relative Positioning</div>
+    <div class="absolute">Absolute Positioning</div>
+    <div class="fixed">Fixed Positioning</div>
+    <div class="sticky">Sticky Positioning</div>
+
+    <!-- Question 18: Two-Column Layout -->
+    <div class="flex-container">
+        <div class="column">Column 1</div>
+        <div class="column">Column 2</div>
+    </div>
+
+    <!-- Question 21: Float -->
+    <div class="float-left">Float Left</div>
+    <div class="float-right">Float Right</div>
+
+    <!-- Question 22: Clear Float -->
+    <div class="clearfix">
+        <div class="float-left">Left Float</div>
+        <div class="float-right">Right Float</div>
+    </div>
+
+    <!-- Question 23: Responsive Design -->
+    <div class="responsive">Responsive Design Example</div>
+
+    <!-- Question 26: Hover Effect -->
+    <a href="#" class="hover-link">Hover over this link</a>
+
+    <!-- Question 27: Pseudo-classes -->
+    <p class="pseudo-class-example">This is a pseudo-class example.</p>
+
+    <!-- Question 28: Pseudo-elements -->
+    <p class="pseudo-element-example">This is a pseudo-element example.</p>
+
+    <!-- Question 29: Z-index -->
+    <div class="z-index1">Z-index 1</div>
+    <div class="z-index2">Z-index 2</div>
+
+    <!-- Question 30: Visibility vs Display -->
+    <p class="visibility-hidden">Visibility Hidden</p>
+    <p class="display-none">Display None</p>
+
+    <!-- Question 31: CSS Transition -->
+    <div class="transition-box">Hover over me</div>
+
+    <!-- Question 33: CSS Animation -->
+    <div class="animation-box">CSS Animation</div>
+
+    <!-- Question 36: Background Image -->
+    <div class="background-image">Background Image</div>
+
+    <!-- Question 37: Gradient Background -->
+    <div class="gradient-background">Gradient Background</div>
+
+    <!-- Question 38: nth-child and nth-of-type -->
+    <ul class="nth-example">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <!-- Question 39: Cursor -->
+    <a href="#" class="custom-cursor">Hover to change cursor</a>
+
+    <!-- Question 44: Specific List Item -->
+    <ul class="specific-list">
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+    </ul>
+
+    <!-- Question 45: Fixed Header -->
+    <header class="fixed-header">Fixed Header</header>
+
+    <!-- Question 46: calc() -->
+    <div class="calc-box">Calc Function</div>
+
+    <!-- Question 47: Dropdown Menu -->
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+
+    <!-- Question 49: Responsive Image -->
+    <img src="example.jpg" class="responsive-image" alt="Responsive Image">
+
+    <!-- Question 50: Attribute Selector -->
+    <input type="text" class="attribute-input" placeholder="Text Input">
+
+</body>
+</html>
+```
+
+### CSS File (styles.css)
+```css
+/* Question 4: Box Model */
+.box-model {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 5px solid black;
+    margin: 20px;
+}
+
+/* Question 6: CSS Selectors */
+.class-selector {
+    color: blue;
+}
+#id-selector {
+    color: green;
+}
+[placeholder="Attribute Selector Example"] {
+    color: red;
+}
+
+/* Question 8: Class vs ID Selectors */
+.class-vs-id {
+    color: purple;
+}
+#class-vs-id {
+    color: orange;
+}
+
+/* Question 9: Inline, Inline-Block, Block Elements */
+.inline-element {
+    display: inline;
+}
+.block-element {
+    display: block;
+}
+.inline-block-element {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+}
+
+/* Question 10: Centering Elements */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.centered {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+}
+
+/* Question 11: Text Color */
+.text-color {
+    color: blue;
+}
+
+/* Question 13: Custom Font */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('mycustomfont.woff2') format('woff2');
+}
+.custom-font {
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+/* Question 14: Line Height */
+.line-height {
+    line-height: 1.5;
+}
+
+/* Question 15: Text Styles */
+.bold-text {
+    font-weight: bold;
+}
+.italic-text {
+    font-style: italic;
+}
+.underlined-text {
+    text-decoration: underline;
+}
+
+/* Question 17: Positioning */
+.relative {
+    position: relative;
+    top: 10px;
+}
+.absolute {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.fixed {
+    position: fixed;
+    top: 10px;
+}
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+/* Question 18: Two-Column Layout */
+.flex-container {
+    display: flex;
+}
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Question 21: Float */
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+/* Question 22: Clear Float */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Question 23: Responsive Design */
+.responsive {
+    background-color: lightblue;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Question 26: Hover Effect */
+.hover-link:hover {
+    color: red;
+}
+
+/* Question 27: Pseudo-classes */
+.pseudo-class-example:hover {
+    color: red;
+}
+
+/* Question 28: Pseudo-elements */
+.pseudo-element-example::first-letter {
+    font-size: 2em;
+}
+
+/* Question 29: Z-index */
+.z-index1 {
+    position: absolute;
+    z-index: 1;
+    background-color: light
+
+blue;
+    width: 100px;
+    height: 100px;
+    top: 50px;
+}
+.z-index2 {
+    position: absolute;
+    z-index: 2;
+    background-color: lightcoral;
+    width: 100px;
+    height: 100px;
+    top: 70px;
+}
+
+/* Question 30: Visibility vs Display */
+.visibility-hidden {
+    visibility: hidden;
+}
+.display-none {
+    display: none;
+}
+
+/* Question 31: CSS Transition */
+.transition-box {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transition: background-color 0.5s ease;
+}
+.transition-box:hover {
+    background-color: red;
+}
+
+/* Question 33: CSS Animation */
+@keyframes myAnimation {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animation-box {
+    animation: myAnimation 2s infinite;
+}
+
+/* Question 36: Background Image */
+.background-image {
+    width: 100%;
+    height: 200px;
+    background-image: url('background.jpg');
+    background-size: cover;
+}
+
+/* Question 37: Gradient Background */
+.gradient-background {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to right, red, yellow);
+}
+
+/* Question 38: nth-child and nth-of-type */
+.nth-example li:nth-child(2) {
+    color: red;
+}
+.nth-example li:nth-of-type(2) {
+    color: blue;
+}
+
+/* Question 39: Cursor */
+.custom-cursor {
+    cursor: pointer;
+}
+
+/* Question 44: Specific List Item */
+.specific-list li:nth-child(2) {
+    color: red;
+}
+
+/* Question 45: Fixed Header */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: lightblue;
+}
+
+/* Question 46: calc() */
+.calc-box {
+    width: calc(100% - 50px);
+    height: 100px;
+    background-color: lightgreen;
+}
+
+/* Question 47: Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropbtn {
+    background-color: lightblue;
+    padding: 10px;
+    border: none;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: lightgray;
+}
+
+/* Question 49: Responsive Image */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Question 50: Attribute Selector */
+input[type="text"].attribute-input {
+    border: 1px solid black;
+}
+```
+
+This HTML and CSS code includes examples for all the questions and should cover the key concepts mentioned. You can create a project with these files to test and view the examples in action.
