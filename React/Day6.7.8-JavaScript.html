@@ -1,5 +1,65 @@
 ### JavaScript Fundamentals
 
+```javascript
+// Example using let
+console.log("Example using let:");
+
+let message = "Hello, World!";
+console.log(message); // Output: Hello, World!
+
+message = "Hello, JavaScript!";
+console.log(message); // Output: Hello, JavaScript!
+
+console.log("\nExample of block scope with let:");
+
+if (true) {
+  let blockScopedVar = "I am block scoped!";
+  console.log(blockScopedVar); // Output: I am block scoped!
+}
+// The following line will cause an error because blockScopedVar is not defined outside the block
+// console.log(blockScopedVar); // Uncommenting this line will cause an error
+
+console.log("\nExample using const:");
+
+const greeting = "Hello, World!";
+console.log(greeting); // Output: Hello, World!
+
+// The following line will cause an error because greeting is a constant
+// greeting = "Hello, JavaScript!"; // Uncommenting this line will cause an error
+
+console.log("\nExample of block scope with const:");
+
+if (true) {
+  const anotherBlockScopedVar = "I am also block scoped!";
+  console.log(anotherBlockScopedVar); // Output: I am also block scoped!
+}
+// The following line will cause an error because anotherBlockScopedVar is not defined outside the block
+// console.log(anotherBlockScopedVar); // Uncommenting this line will cause an error
+
+console.log("\nExample of initialization:");
+
+let uninitializedLet;
+console.log(uninitializedLet); // Output: undefined
+
+uninitializedLet = "Now it is initialized!";
+console.log(uninitializedLet); // Output: Now it is initialized!
+
+// The following line will cause an error because const variables must be initialized at declaration
+// const uninitializedConst; // Uncommenting this line will cause an error
+const initializedConst = "I am initialized!";
+console.log(initializedConst); // Output: I am initialized!
+```
+
+### How to Run the Script
+
+1. Open your web browser.
+2. Open the Developer Tools (usually by pressing `F12` or `Ctrl+Shift+I`).
+3. Navigate to the "Console" tab.
+4. Copy the script above.
+5. Paste the script into the console and press `Enter`.
+
+You will see the output for each section, demonstrating how `let` and `const` work in JavaScript.
+
 #### Variables and Data Types
 
 1. **Explanation:**
