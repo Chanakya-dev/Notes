@@ -1646,6 +1646,237 @@ async function fetchAndLog() {
 fetchAndLog();
 
 ```
+#######################################Summary######################################
+### JavaScript Fundamentals Assignment
 
+This assignment will test various JavaScript concepts using `console.log` for outputs. The topics include variables, data types, operators, control structures, functions, objects, arrays, template literals, destructuring, spread and rest operators, async/await, event handling, and more. Follow the instructions and write the corresponding code.
 
+### 1. Introduction to JavaScript Fundamentals (Variables: `var`, `let`, `const`)
+
+#### Example:
+```javascript
+// Variables
+var globalVar = "I am a global variable";
+let blockVar = "I am a block-scoped variable";
+const constVar = "I cannot be reassigned";
+
+console.log(globalVar);
+console.log(blockVar);
+console.log(constVar);
+```
+
+### 2. Variables and Data Types
+
+#### Example:
+```javascript
+// Data Types
+let number = 42;
+let text = "Hello, World!";
+let flag = true;
+let array = [1, 2, 3];
+let object = { key: "value" };
+
+console.log("Number:", number);
+console.log("Text:", text);
+console.log("Boolean:", flag);
+console.log("Array:", array);
+console.log("Object:", object);
+```
+
+### 3. Operators and Expressions
+
+#### Example:
+```javascript
+// Operators
+let sum = 10 + 5;
+let difference = 10 - 5;
+let product = 10 * 5;
+let quotient = 10 / 5;
+
+let isEqual = (10 == "10");
+let isStrictEqual = (10 === "10");
+let isGreater = (10 > 5);
+
+console.log("Sum:", sum);
+console.log("Difference:", difference);
+console.log("Product:", product);
+console.log("Quotient:", quotient);
+console.log("Is Equal:", isEqual);
+console.log("Is Strict Equal:", isStrictEqual);
+console.log("Is Greater:", isGreater);
+```
+
+### 4. Control Structures
+
+#### Example:
+```javascript
+// Control Structures
+let age = 20;
+
+if (age > 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+
+let day = "Monday";
+switch (day) {
+  case "Monday":
+    console.log("Start of the week");
+    break;
+  case "Friday":
+    console.log("End of the week");
+    break;
+  default:
+    console.log("Midweek");
+}
+```
+
+### 5. Functions and Scope
+
+#### Example:
+```javascript
+// Functions and Scope
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+let greeting = greet("Alice");
+console.log(greeting);
+
+function scopeExample() {
+  var functionScoped = "I am function scoped";
+  let blockScoped = "I am block scoped";
+  const constant = "I cannot be reassigned";
+
+  console.log(functionScoped);
+  console.log(blockScoped);
+  console.log(constant);
+}
+
+scopeExample();
+```
+
+### 6. Objects and Arrays
+
+#### Example:
+```javascript
+// Objects and Arrays
+let person = {
+  name: "Alice",
+  age: 30,
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+console.log("Name:", person.name);
+console.log("Age:", person.age);
+person.greet();
+
+let numbers = [1, 2, 3];
+console.log("Numbers:", numbers);
+```
+
+### 7. Template Literals
+
+#### Example:
+```javascript
+// Template Literals
+let name = "Alice";
+let greeting = `Hello, ${name}!`;
+console.log(greeting);
+```
+
+### 8. Destructuring Assignment
+
+#### Example:
+```javascript
+// Destructuring Assignment
+let person = { name: "Alice", age: 30 };
+let { name, age } = person;
+console.log("Name:", name);
+console.log("Age:", age);
+
+let numbers = [1, 2, 3];
+let [first, second, third] = numbers;
+console.log("First:", first);
+console.log("Second:", second);
+console.log("Third:", third);
+```
+
+### 9. Spread and Rest Operators
+
+#### Example:
+```javascript
+// Spread and Rest Operators
+let numbers = [1, 2, 3];
+let newNumbers = [...numbers, 4, 5];
+console.log("New Numbers:", newNumbers);
+
+function sum(...args) {
+  return args.reduce((acc, val) => acc + val, 0);
+}
+
+let total = sum(1, 2, 3, 4, 5);
+console.log("Sum:", total);
+```
+
+### 10. Async/Await
+
+#### Example:
+```javascript
+// Async/Await
+async function fetchData() {
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fetchData();
+```
+
+### 11. Event Handling
+
+#### Example:
+```javascript
+// Event Handling
+document.getElementById("myButton").addEventListener("click", function() {
+  console.log("Button was clicked!");
+});
+```
+
+### 12. DOM Manipulation
+
+#### Example:
+```javascript
+// DOM Manipulation
+let header = document.getElementById("header");
+header.innerText = "New Header";
+
+let special = document.querySelector(".special");
+special.style.color = "blue";
+```
+
+### 13. ES6 and Beyond
+
+#### Example:
+```javascript
+// ES6 and Beyond
+let arrowFunction = (name) => `Hello, ${name}!`;
+console.log(arrowFunction("Alice"));
+```
+
+### 14. Arrow Functions
+
+#### Example:
+```javascript
+// Arrow Functions
+let greet = (name) => `Hello, ${name}!`;
+console.log(greet("Alice"));
+```
 
