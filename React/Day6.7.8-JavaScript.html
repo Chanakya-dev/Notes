@@ -1628,6 +1628,25 @@ fetchData();
 
 ```
 
+``` javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data fetched");
+    }, 2000);
+  });
+}
+
+async function fetchAndLog() {
+  console.log("Fetching data...");
+  const data = await fetchData(); // Waits here until fetchData() is resolved
+  console.log(data); // Logs "Data fetched" after 2 seconds
+}
+
+fetchAndLog();
+
+```
+
 ### React Use Case
 In React, promises and async/await are commonly used for data fetching, such as making API calls within components. Understanding these concepts is crucial for implementing side effects in React components, often handled using hooks like `useEffect`.
 
