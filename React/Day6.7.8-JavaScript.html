@@ -1580,186 +1580,29 @@ After installing the required dependencies and using the above code, your applic
 1. **Explanation:**
    The spread operator allows you to expand elements of an array or object, while the rest operator allows you to represent an indefinite number of elements as an array.
 
-   ```javascript
-   // Spread operator
-   let numbers = [1, 2, 3];
-   let newNumbers = [...numbers, 4, 5];
+// Spread operator
+let numbers = [1, 2, 3];
+let additionalNumbers = [4, 5];
+let allNumbers = [...numbers, ...additionalNumbers];
+console.log("All Numbers:", allNumbers); // Output: All Numbers: [1, 2, 3, 4, 5]
 
-   // Rest operator
-   function sum(...args) {
-       return args.reduce((acc, val) => acc + val, 0);
-   }
-   ```
+// Rest operator
+function findMax(...args) {
+    return Math.max(...args);
+}
 
-2. **React Use Case:**
-   The spread operator is useful for updating state immutably, while the rest operator helps handle variable numbers of arguments in functions, including event handlers in React.
+let maxValue = findMax(...allNumbers);
+console.log("Max Value:", maxValue); // Output: Max Value: 5
 
-3. **Implementation in React:**
-   Update `JavaScriptFundamentals.js` to demonstrate spread and rest operators.
+// Another example using both spread and rest operators
+function sum(...args) {
+    return args.reduce((acc, val) => acc + val, 0);
+}
 
-   ```jsx
-   import React, { useState } from 'react';
+let totalSum = sum(...allNumbers);
+console.log("Sum of All Numbers:", totalSum); // Output: Sum of All Numbers: 15
 
-   const JavaScriptFundamentals = () => {
-     const [message, setMessage] = useState('');
-     const [counter, setCounter] = useState(0);
-     const [person, setPerson] = useState({ name: 'John', age: 25 });
-     const [list, setList] = useState([1, 2, 3]);
 
-     const showVariables = () => {
-       let number = 42;
-       let text = 'Hello, World!';
-       let flag = true;
-       setMessage(`Number: ${number}, Text: ${text}, Boolean: ${flag}`);
-     };
-
-     const checkAge = () => {
-       if (person.age >= 18) {
-         setMessage('Adult');
-       } else {
-         setMessage('Minor');
-       }
-     };
-
-     const showDayMessage = () => {
-       switch (day) {
-         case 'Monday':
-           setMessage('Start of the week');
-           break;
-         case 'Friday':
-           setMessage('End of the week');
-           break;
-         default:
-           setMessage('Midweek');
-       }
-     };
-
-     const incrementCounter = () => {
-       for (let i = 0; i < 5; i++) {
-         setCounter((prevCounter) => prevCounter + 1);
-       }
-     };
-
-     const greetExpression = function(name) {
-       return `Hello, ${name}!`;
-     };
-
-     const greetArrow = (name) => `Hello, ${name}!`;
-
-     const showScope = () => {
-       let globalVar = 'I am global';
-
-       function localScope() {
-         // Local Scope
-         let localVar = 'I am local';
-         console.log(globalVar); // Accessible
-         console.log(localVar); // Accessible
-       }
-
-       localScope();
-       setMessage(globalVar);
-     };
-
-     const showPerson = () => {
-       let person = {
-         name: 'Alice',
-         age: 30,
-         greet: function() {
-           console.log(`Hello, my name is ${this.name}`);
-         },
-       };
-
-       setMessage(`Name: ${person.name}, Age: ${person.age}`);
-       person.greet();
-     };
-
-     const addToList = () => {
-       setList((prevList) => [...prevList, prevList.length + 1]);
-     };
-
-     const handleButtonClick = () => {
-       alert('Button was clicked!');
-     };
-
-     const showLetConst = () => {
-       let mutableVar = 'I can change';
-       const immutableVar = 'I cannot change';
-
-       // Block scope
-       if (true) {
-         let blockVar = 'I am block scoped';
-         console.log(blockVar); // Accessible
-       }
-      
-
- // console.log(blockVar); // Unaccessible
-
-       setMessage(`mutableVar: ${mutableVar}, immutableVar: ${immutableVar}`);
-     };
-
-     const showTemplateLiterals = () => {
-       let name = 'Alice';
-       let greeting = `Hello, ${name}!`;
-       setMessage(greeting);
-     };
-
-     const showDestructuring = () => {
-       let person = { name: 'Alice', age: 30 };
-       let { name, age } = person;
-       setMessage(`Name: ${name}, Age: ${age}`);
-
-       let numbers = [1, 2, 3];
-       let [first, second, third] = numbers;
-       console.log(`First: ${first}, Second: ${second}, Third: ${third}`);
-     };
-
-     // Example of spread and rest operators
-     const showSpreadRest = () => {
-       let numbers = [1, 2, 3];
-       let newNumbers = [...numbers, 4, 5];
-       setMessage(`New Numbers: ${newNumbers.join(', ')}`);
-
-       function sum(...args) {
-         return args.reduce((acc, val) => acc + val, 0);
-       }
-
-       console.log(`Sum: ${sum(1, 2, 3, 4, 5)}`);
-     };
-
-     return (
-       <div>
-         <h1 id="header">JavaScript Fundamentals with React</h1>
-         <div>
-           <button onClick={showVariables}>Show Variables</button>
-           <button onClick={checkAge}>Check Age</button>
-           <button onClick={showDayMessage}>Show Day Message</button>
-           <button onClick={incrementCounter}>Increment Counter</button>
-           <button onClick={() => setMessage(greetExpression('Bob'))}>Greet with Expression</button>
-           <button onClick={() => setMessage(greetArrow('Alice'))}>Greet with Arrow</button>
-           <button onClick={showScope}>Show Scope</button>
-           <button onClick={showPerson}>Show Person</button>
-           <button onClick={addToList}>Add to List</button>
-           <button onClick={handleButtonClick}>Click Me</button>
-           <button onClick={showLetConst}>Show Let and Const</button>
-           <button onClick={showTemplateLiterals}>Show Template Literals</button>
-           <button onClick={showDestructuring}>Show Destructuring</button>
-           <button onClick={showSpreadRest}>Show Spread and Rest</button>
-         </div>
-         <div>
-           <p>{message}</p>
-           <p className="special">Counter: {counter}</p>
-           <p>List: {list.join(', ')}</p>
-         </div>
-       </div>
-     );
-   };
-
-   export default JavaScriptFundamentals;
-   ```
-
-4. **Verification:**
-   - Run the application and click the "Show Spread and Rest" button.
-   - You should see the new array values displayed, and the sum of the numbers logged in the console.
 
 #### Async/Await
 
