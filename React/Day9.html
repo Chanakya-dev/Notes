@@ -136,3 +136,490 @@ Now you should see a simple application with a counter that increments on button
 ## Summary
 
 In this tutorial, we've covered the basics of `useState` and `useEffect` hooks with simple, ready-to-run examples. The `useState` hook is used to manage state in functional components, while the `useEffect` hook is used for side effects such as data fetching. These hooks are powerful tools that enable you to write cleaner and more functional React components.
+
+
+######################################################################################
+
+### Step-by-Step Tutorial to Fetch Movie Information Using Axios
+
+### Step 1: Set Up a New React Project
+
+1. **Create a new React project using Create React App:**
+
+   ```bash
+   npx create-react-app movie-app
+   cd movie-app
+   ```
+
+2. **Install required dependencies:**
+
+   ```bash
+   npm install @mui/material @emotion/react @emotion/styled react-router-dom axios
+   ```
+
+### Step 2: Get TMDB API Key
+
+1. **Sign up for an API key from [The Movie Database (TMDB)](https://www.themoviedb.org/documentation/api)**.
+
+### Step 3: Create API Service
+
+1. **Create a new file named `api.js` in the `src` folder:**
+
+   ```javascript
+   import axios from 'axios';
+
+   const API_KEY = 'YOUR_TMDB_API_KEY';
+   const BASE_URL = 'https://api.themoviedb.org/3';
+
+   export const fetchMovies = async () => {
+     const response = await axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+     return response.data.results;
+   };
+
+   export const fetchMovieDetails = async (id) => {
+     const response = await axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+     return response.data;
+   };
+   ```
+
+### Step 4: Create Movie List Component
+
+1. **Create a new file named `MovieList.js` in the `src` folder:**
+
+   ```jsx
+   import React, { useState, useEffect } from 'react';
+   import { fetchMovies } from './api';
+   import { Grid, Card, CardMedia, CardContent, Typography, Rating } from '@mui/material';
+   import { Link } from 'react-router-dom';
+
+   const MovieList = () => {
+     const [movies, setMovies] = useState([]);
+
+     useEffect(() => {
+       const getMovies = async () => {
+         const moviesData = await fetchMovies();
+         setMovies(moviesData);
+       };
+       getMovies();
+     }, []);
+
+     return (
+       <Grid container spacing={3}>
+         {movies.map((movie) => (
+           <Grid item xs={6} sm={4} md={3} key={movie.id}>
+             <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>
+               <Card>
+                 <CardMedia
+                   component="img"
+                   image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                   alt={movie.title}
+                 />
+                 <CardContent>
+                   <Typography variant="h6">{movie.title}</Typography>
+                   <Rating value={movie.vote_average / 2} precision={0.5} readOnly />
+                 </CardContent>
+               </Card>
+             </Link>
+           </Grid>
+         ))}
+       </Grid>
+     );
+   };
+
+   export default MovieList;
+   ```
+
+### Step 5: Create Movie Details Component
+
+1. **Create a new file named `MovieDetails.js` in the `src` folder:**
+
+   ```jsx
+   import React, { useState, useEffect } from 'react';
+   import { useParams } from 'react-router-dom';
+   import { fetchMovieDetails } from './api';
+   import { Typography, Card, CardMedia, CardContent } from '@mui/material';
+
+   const MovieDetails = () => {
+     const { id } = useParams();
+     const [movie, setMovie] = useState(null);
+
+     useEffect(() => {
+       const getMovieDetails = async () => {
+         const movieData = await fetchMovieDetails(id);
+         setMovie(movieData);
+       };
+       getMovieDetails();
+     }, [id]);
+
+     if (!movie) {
+       return <div>Loading...</div>;
+     }
+
+     return (
+       <Card>
+         <CardMedia
+           component="img"
+           image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+           alt={movie.title}
+         />
+         <CardContent>
+           <Typography variant="h4">{movie.title}</Typography>
+           <Typography variant="body1">{movie.overview}</Typography>
+           <Typography variant="body2">Release Date: {movie.release_date}</Typography>
+         </CardContent>
+       </Card>
+     );
+   };
+
+   export default MovieDetails;
+   ```
+
+### Step 6: Set Up React Router
+
+1. **Update `App.js` to include routing:**
+
+   ```jsx
+   import React from 'react';
+   import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+   import MovieList from './MovieList';
+   import MovieDetails from './MovieDetails';
+
+   function App() {
+     return (
+       <Router>
+         <Routes>
+           <Route path="/" element={<MovieList />} />
+           <Route path="/movie/:id" element={<MovieDetails />} />
+         </Routes>
+       </Router>
+     );
+   }
+
+   export default App;
+   ```
+
+### Step 7: Run the App
+
+1. **Start the React app:**
+
+   ```bash
+   npm start
+   ```
+
+Now, you should have a React app that fetches and displays a list of popular movies with their ratings using Axios. Clicking on a movie card will navigate to a details page showing more information about the selected movie.
+
+######################################################################
+`MovieList.js` file line by line to understand what each part does:
+
+### Imports
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import { fetchMovies } from './api';
+import { Grid, Card, CardMedia, CardContent, Typography, Rating } from '@mui/material';
+import { Link } from 'react-router-dom';
+```
+
+1. **`import React, { useState, useEffect } from 'react';`**
+   - Imports React and two hooks (`useState` and `useEffect`) from the React library.
+   - `useState` is used to create state variables in functional components.
+   - `useEffect` is used to perform side effects in functional components, such as data fetching.
+
+2. **`import { fetchMovies } from './api';`**
+   - Imports the `fetchMovies` function from the `api.js` file. This function will be used to fetch movie data from the TMDB API.
+
+3. **`import { Grid, Card, CardMedia, CardContent, Typography, Rating } from '@mui/material';`**
+   - Imports several components from the Material-UI library for styling and layout purposes.
+   - `Grid` is used for creating grid layouts.
+   - `Card`, `CardMedia`, `CardContent`, `Typography`, and `Rating` are used to display movie information in a card format.
+
+4. **`import { Link } from 'react-router-dom';`**
+   - Imports the `Link` component from the React Router library to create navigable links within the application.
+
+### Functional Component Definition
+
+```jsx
+const MovieList = () => {
+  const [movies, setMovies] = useState([]);
+```
+
+5. **`const MovieList = () => {`**
+   - Defines the `MovieList` functional component.
+
+6. **`const [movies, setMovies] = useState([]);`**
+   - Declares a state variable `movies` with an initial empty array.
+   - `setMovies` is a function that updates the `movies` state variable.
+
+### useEffect Hook
+
+```jsx
+  useEffect(() => {
+    const getMovies = async () => {
+      const moviesData = await fetchMovies();
+      setMovies(moviesData);
+    };
+    getMovies();
+  }, []);
+```
+
+7. **`useEffect(() => {`**
+   - Uses the `useEffect` hook to perform side effects (in this case, fetching movie data) after the component renders.
+
+8. **`const getMovies = async () => {`**
+   - Defines an asynchronous function `getMovies` to fetch movie data.
+
+9. **`const moviesData = await fetchMovies();`**
+   - Calls the `fetchMovies` function to get movie data from the TMDB API and waits for the result.
+
+10. **`setMovies(moviesData);`**
+    - Updates the `movies` state variable with the fetched movie data.
+
+11. **`getMovies();`**
+    - Calls the `getMovies` function to fetch movie data when the component mounts.
+
+12. **`}, []);`**
+    - The empty dependency array `[]` ensures that the `useEffect` hook runs only once after the initial render.
+
+### Return JSX
+
+```jsx
+  return (
+    <Grid container spacing={3}>
+      {movies.map((movie) => (
+        <Grid item xs={6} sm={4} md={3} key={movie.id}>
+          <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>
+            <Card>
+              <CardMedia
+                component="img"
+                image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <CardContent>
+                <Typography variant="h6">{movie.title}</Typography>
+                <Rating value={movie.vote_average / 2} precision={0.5} readOnly />
+              </CardContent>
+            </Card>
+          </Link>
+        </Grid>
+      ))}
+    </Grid>
+  );
+};
+```
+
+13. **`return (`**
+    - Starts the JSX return statement that defines the component's UI.
+
+14. **`<Grid container spacing={3}>`**
+    - Creates a `Grid` container with spacing between grid items.
+
+15. **`{movies.map((movie) => (`**
+    - Maps over the `movies` array to create a `Grid` item for each movie.
+
+16. **`<Grid item xs={6} sm={4} md={3} key={movie.id}>`**
+    - Creates a `Grid` item for each movie with responsive sizing (`xs`, `sm`, `md`) and a unique `key` attribute.
+
+17. **`<Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>`**
+    - Wraps each movie card in a `Link` component to make it clickable, navigating to a details page for the movie.
+    - The `to` attribute sets the URL to `/movie/${movie.id}`.
+    - The `style` attribute removes the default text decoration from the link.
+
+18. **`<Card>`**
+    - Creates a Material-UI `Card` component to display the movie's information.
+
+19. **`<CardMedia component="img" image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />`**
+    - Adds an image to the card using the `CardMedia` component.
+    - The `component="img"` attribute specifies that the media is an image.
+    - The `image` attribute sets the source URL of the image.
+    - The `alt` attribute sets the alternative text for the image.
+
+20. **`<CardContent>`**
+    - Creates a `CardContent` component to hold the movie title and rating.
+
+21. **`<Typography variant="h6">{movie.title}</Typography>`**
+    - Adds a `Typography` component to display the movie title with a heading style (`h6`).
+
+22. **`<Rating value={movie.vote_average / 2} precision={0.5} readOnly />`**
+    - Adds a `Rating` component to display the movie's rating.
+    - The `value` attribute sets the rating value, converting the 10-point scale to a 5-star scale by dividing by 2.
+    - The `precision` attribute allows for half-star ratings.
+    - The `readOnly` attribute makes the rating non-interactive.
+
+23. **`</CardContent>`**
+    - Closes the `CardContent` component.
+
+24. **`</Card>`**
+    - Closes the `Card` component.
+
+25. **`</Link>`**
+    - Closes the `Link` component.
+
+26. **`</Grid>`**
+    - Closes the `Grid` item component.
+
+27. **`))}`**
+    - Closes the `map` function and JSX expression.
+
+28. **`</Grid>`**
+    - Closes the `Grid` container component.
+
+29. **`);`**
+    - Ends the return statement.
+
+30. **`};`**
+    - Ends the `MovieList` functional component.
+
+31. **`export default MovieList;`**
+    - Exports the `MovieList` component as the default export of the file.
+
+###########################
+Let's break down the `MovieDetails.js` file line by line to understand what each part does:
+
+### Imports
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchMovieDetails } from './api';
+import { Typography, Card, CardMedia, CardContent } from '@mui/material';
+```
+
+1. **`import React, { useState, useEffect } from 'react';`**
+   - Imports React and two hooks (`useState` and `useEffect`) from the React library.
+   - `useState` is used to create state variables in functional components.
+   - `useEffect` is used to perform side effects in functional components, such as data fetching.
+
+2. **`import { useParams } from 'react-router-dom';`**
+   - Imports the `useParams` hook from React Router. This hook allows you to access the parameters of the current route.
+
+3. **`import { fetchMovieDetails } from './api';`**
+   - Imports the `fetchMovieDetails` function from the `api.js` file. This function will be used to fetch detailed movie data from the TMDB API.
+
+4. **`import { Typography, Card, CardMedia, CardContent } from '@mui/material';`**
+   - Imports several components from the Material-UI library for styling and layout purposes.
+   - `Typography` is used for text elements.
+   - `Card`, `CardMedia`, and `CardContent` are used to display movie information in a card format.
+
+### Functional Component Definition
+
+```jsx
+const MovieDetails = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+```
+
+5. **`const MovieDetails = () => {`**
+   - Defines the `MovieDetails` functional component.
+
+6. **`const { id } = useParams();`**
+   - Uses the `useParams` hook to extract the `id` parameter from the current route. This `id` will be used to fetch the details of the specific movie.
+
+7. **`const [movie, setMovie] = useState(null);`**
+   - Declares a state variable `movie` with an initial value of `null`.
+   - `setMovie` is a function that updates the `movie` state variable.
+
+### useEffect Hook
+
+```jsx
+  useEffect(() => {
+    const getMovieDetails = async () => {
+      const movieData = await fetchMovieDetails(id);
+      setMovie(movieData);
+    };
+    getMovieDetails();
+  }, [id]);
+```
+
+8. **`useEffect(() => {`**
+   - Uses the `useEffect` hook to perform side effects (in this case, fetching movie data) after the component renders.
+
+9. **`const getMovieDetails = async () => {`**
+   - Defines an asynchronous function `getMovieDetails` to fetch movie data.
+
+10. **`const movieData = await fetchMovieDetails(id);`**
+    - Calls the `fetchMovieDetails` function with the `id` parameter to get detailed movie data from the TMDB API and waits for the result.
+
+11. **`setMovie(movieData);`**
+    - Updates the `movie` state variable with the fetched movie data.
+
+12. **`getMovieDetails();`**
+    - Calls the `getMovieDetails` function to fetch movie data when the component mounts.
+
+13. **`}, [id]);`**
+    - The `id` parameter in the dependency array ensures that the `useEffect` hook runs again if the `id` parameter changes.
+
+### Conditional Rendering
+
+```jsx
+  if (!movie) {
+    return <div>Loading...</div>;
+  }
+```
+
+14. **`if (!movie) { return <div>Loading...</div>; }`**
+    - Checks if the `movie` state variable is `null`.
+    - If it is, displays a loading message until the movie data is fetched.
+
+### Return JSX
+
+```jsx
+  return (
+    <Card>
+      <CardMedia
+        component="img"
+        image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+        alt={movie.title}
+      />
+      <CardContent>
+        <Typography variant="h4">{movie.title}</Typography>
+        <Typography variant="body1">{movie.overview}</Typography>
+        <Typography variant="body2">Release Date: {movie.release_date}</Typography>
+      </CardContent>
+    </Card>
+  );
+};
+```
+
+15. **`return (`**
+    - Starts the JSX return statement that defines the component's UI.
+
+16. **`<Card>`**
+    - Creates a Material-UI `Card` component to display the movie's information.
+
+17. **`<CardMedia component="img" image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />`**
+    - Adds an image to the card using the `CardMedia` component.
+    - The `component="img"` attribute specifies that the media is an image.
+    - The `image` attribute sets the source URL of the image using the `movie.poster_path`.
+    - The `alt` attribute sets the alternative text for the image to the movie title.
+
+18. **`<CardContent>`**
+    - Creates a `CardContent` component to hold the movie title, overview, and release date.
+
+19. **`<Typography variant="h4">{movie.title}</Typography>`**
+    - Adds a `Typography` component to display the movie title with a heading style (`h4`).
+
+20. **`<Typography variant="body1">{movie.overview}</Typography>`**
+    - Adds a `Typography` component to display the movie overview with a body style (`body1`).
+
+21. **`<Typography variant="body2">Release Date: {movie.release_date}</Typography>`**
+    - Adds a `Typography` component to display the movie release date with a secondary body style (`body2`).
+
+22. **`</CardContent>`**
+    - Closes the `CardContent` component.
+
+23. **`</Card>`**
+    - Closes the `Card` component.
+
+### Export Component
+
+```jsx
+};
+
+export default MovieDetails;
+```
+
+24. **`};`**
+    - Ends the `MovieDetails` functional component.
+
+25. **`export default MovieDetails;`**
+    - Exports the `MovieDetails` component as the default export of the file. This allows the component to be imported and used in other parts of the application.
