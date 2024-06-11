@@ -1871,4 +1871,44 @@ console.log(arrowFunction("Alice"));
 let greet = (name) => `Hello, ${name}!`;
 console.log(greet("Alice"));
 ```
+## run this html
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrow Function vs Regular Function</title>
+  </head>
+  <body>
+    <h2>Regular Function Example</h2>
+    <button id="myButton1">Click me (Regular Function)</button>
+    <h2>Arrow Function Example</h2>
+    <button id="myButton2">Click me (Arrow Function)</button>
+
+    <script>
+      // Regular Function Example
+      function RegularButton() {
+        this.label = "Click me (Regular Function)";
+
+        document
+          .getElementById("myButton1")
+          .addEventListener("click", function () {
+            console.log(this.label); // undefined, because `this` refers to the button element, not the RegularButton instance
+          });
+      }
+
+      new RegularButton();
+
+      // Arrow Function Example
+      function ArrowButton() {
+        this.label = "Click me (Arrow Function)";
+
+        document.getElementById("myButton2").addEventListener("click", () => {
+          console.log(this.label); // "Click me (Arrow Function)", because `this` refers to the ArrowButton instance
+        });
+      }
+
+      new ArrowButton();
+    </script>
+  </body>
+</html>
 
