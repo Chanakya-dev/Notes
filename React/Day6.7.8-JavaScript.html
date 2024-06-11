@@ -1638,6 +1638,28 @@ async function fetchAndLog() {
 fetchAndLog();
 
 ```
+
+#### Event Handling ####
+         
+import React, { useState } from 'react';
+
+function App() {
+  const [message, setMessage] = useState('');
+
+  const handleClick = () => {
+    setMessage('Button was clicked!');
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click me</button>
+      <p>{message}</p>
+    </div>
+  );
+}
+
+export default App;
+
 #######################################Summary######################################
 ### JavaScript Fundamentals Assignment
 
@@ -1724,29 +1746,55 @@ switch (day) {
 }
 ```
 
-### 5. Functions and Scope
+### Functions and Scope
 
-#### Example:
-```javascript
-// Functions and Scope
+// Global Scope
+var globalVar = "I am a global variable";
+let globalLet = "I am a global variable too";
+const globalConst = "I am also a global variable";
+
 function greet(name) {
   return `Hello, ${name}!`;
 }
 
 let greeting = greet("Alice");
-console.log(greeting);
+console.log(greeting); // Output: Hello, Alice!
 
 function scopeExample() {
+  // Function Scope
   var functionScoped = "I am function scoped";
-  let blockScoped = "I am block scoped";
-  const constant = "I cannot be reassigned";
+  
+  // Block Scope
+  if (true) {
+    let blockScoped = "I am block scoped";
+    const constant = "I cannot be reassigned";
+    
+    console.log(functionScoped); // Accessible within the function scope
+    console.log(blockScoped); // Accessible within the block scope
+    console.log(constant); // Accessible within the block scope
+  }
 
-  console.log(functionScoped);
-  console.log(blockScoped);
-  console.log(constant);
+  console.log(functionScoped); // Accessible within the function scope
+  // The following lines would throw an error if uncommented because blockScoped and constant are not accessible outside the block
+  // console.log(blockScoped); // Error: blockScoped is not defined
+  // console.log(constant); // Error: constant is not defined
+
+  // Trying to reassign constant
+  // constant = "Trying to reassign"; // Error: Assignment to constant variable.
 }
 
+// Testing the scope
+console.log(globalVar); // Accessible, global scope
+console.log(globalLet); // Accessible, global scope
+console.log(globalConst); // Accessible, global scope
+
 scopeExample();
+
+// The following lines would throw an error if uncommented because functionScoped, blockScoped, and constant are not accessible outside the function
+// console.log(functionScoped); // Error: functionScoped is not defined
+// console.log(blockScoped); // Error: blockScoped is not defined
+// console.log(constant); // Error: constant is not defined
+
 ```
 
 ### 6. Objects and Arrays
@@ -1832,27 +1880,7 @@ async function fetchData() {
 fetchData();
 ```
 
-### 11. Event Handling
 
-#### Example:
-```javascript
-// Event Handling
-document.getElementById("myButton").addEventListener("click", function() {
-  console.log("Button was clicked!");
-});
-```
-
-### 12. DOM Manipulation
-
-#### Example:
-```javascript
-// DOM Manipulation
-let header = document.getElementById("header");
-header.innerText = "New Header";
-
-let special = document.querySelector(".special");
-special.style.color = "blue";
-```
 
 ### 13. ES6 and Beyond
 
