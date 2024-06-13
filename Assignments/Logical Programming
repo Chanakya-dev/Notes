@@ -1,0 +1,28 @@
+
+Assignment 1
+
+Complete The Given Code Snippets
+1) Write Prime Numbers Logic and Complete the Example ?
+
+import java.util.Scanner;
+public class Primenumbers{
+   
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter A Number to check Prime or Not");
+        int a=in.nextInt();
+        int count=0;
+     //Your Logic Here
+
+        if(count==0){
+            System.out.println("Prime Number");
+        }
+        else{
+            System.out.println("Composite Number");
+        }
+        in.close();
+    }
+}
+
+
+2) Write a code for a number guessing game?

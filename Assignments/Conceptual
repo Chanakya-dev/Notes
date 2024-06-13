@@ -1,0 +1,14 @@
+package Assignments;
+//Assignment 1
+Conceptual Programming
+Calculate Area Using Overloading Concept 
+public class Shape {
+
+//Shapes to find out Circle,Triangle, Rectangle,Square
+// Method to calculate the area of a triangle 
+
+public double calculateArea(double base, double height)
+ { 
+return 0.5 * base * height;
+ }
+//Complete Remaining Snippet
