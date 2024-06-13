@@ -26,3 +26,5 @@ public class Primenumbers{
 
 
 2) Write a code for a number guessing game?
+   CASE 1:Output must be between 1 to 6
+   CASE 2:Output should not be decimal number
